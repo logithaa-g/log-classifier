@@ -24,7 +24,7 @@ def parse_line(line: str):
             message=match.group(5)
         )
 
-    # Pattern 2: no log level (fallback structured)
+    # Pattern 2: Handles logs that don’t contain a log level but still follow a basic structure
     pattern2 = r"^(\d{4}-\d{2}-\d{2} \S+) (\S+) (\S+): (.*)$"
 
     match = re.match(pattern2, line)
