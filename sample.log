@@ -1,11 +1,55 @@
 2026-03-05 18:16:00.895374 labhost-ch1-fm1 inuk.switch_manager - INFO - #####Starting switch manager#########
 2026-03-05 18:16:02.174422 labhost-ch1-fm1 inuk.switch_manager - INFO - bcm_be : Starting switchd daemon
 2026-03-05 18:16:02.310511 labhost-ch1-fm1 inuk.switch_manager - INFO - switchd pid=48821 started successfully
+
 2026-03-05 18:16:10.120000 labhost-ch1-fm1 inuk.switch_manager - WARN - Port Ethernet1 link DOWN
+2026-03-05 18:16:11.000000 labhost-ch1-fm1 inuk.port_manager - ERROR - port Ethernet1 error detected
 2026-03-05 18:16:12.450000 labhost-ch1-fm1 inuk.switch_manager - INFO - Port Ethernet1 link UP
+
 2026-03-05 18:16:15.003882 labhost-ch1-fm1 inuk.switchd: Port configuration: loading port map from ASIC
 2026-03-05 18:16:17.130999 labhost-ch1-fm1 inuk.array.hw.chassis_ha INFO inuk_iom [25733/MainThread]: process_switch_health, update_switch_status, switch(1) status change: unknown -> retry1
+2026-03-05 18:16:18.000000 labhost-ch1-fm1 inuk.array.hw - INFO - switch health degraded
+
 2026-03-05 18:16:20.000000 labhost-ch1-fm1 inuk.lacp - ERROR - LACP negotiation failed on port Ethernet2
+2026-03-05 18:16:21.000000 labhost-ch1-fm1 inuk.lacp - ERROR - LACP down on interface bond0
+
 2026-03-05 18:16:25.000000 labhost-ch1-fm1 inuk.switchd - ERROR - switchd crashed unexpectedly
+2026-03-05 18:16:26.000000 labhost-ch1-fm1 inuk.switchd - ERROR - switchd process terminated
+
 2026-03-05 18:16:30.000000 labhost-ch1-fm1 inuk.vip_manager - ERROR - VIP creation failed due to timeout
-2026-03-05 18:16:35.000000 labhost-ch1-fm1 inuk.admin - INFO - Admin interface initialized successfully random unexpected log line without proper format
+2026-03-05 18:16:31.000000 labhost-ch1-fm1 inuk.vip_manager - ERROR - vip error while assigning address
+
+2026-03-05 18:16:35.000000 labhost-ch1-fm1 inuk.admin - INFO - Admin interface initialized successfully
+random unexpected log line without proper format
+2026-03-05 18:16:36.000000 labhost-ch1-fm1 inuk.admin - ERROR - admin network down
+
+2026-03-05 18:17:00.000000 labhost-ch2-fm1 inuk.switch_manager - INFO - #####Starting switch manager#########
+2026-03-05 18:17:02.000000 labhost-ch2-fm1 inuk.switch_manager - INFO - Starting switchd daemon
+2026-03-05 18:17:03.000000 labhost-ch2-fm1 inuk.switchd - INFO - switchd started successfully
+
+2026-03-05 18:17:10.000000 labhost-ch2-fm1 inuk.port_manager - ERROR - port Ethernet3 down due to fault
+2026-03-05 18:17:12.000000 labhost-ch2-fm1 inuk.port_manager - INFO - port Ethernet3 up
+
+2026-03-05 18:17:15.000000 labhost-ch2-fm1 inuk.lacp - ERROR - LACP aggregation failed on bond1
+2026-03-05 18:17:16.000000 labhost-ch2-fm1 inuk.lacp - ERROR - LACP down on interface bond1
+
+2026-03-05 18:17:20.000000 labhost-ch2-fm1 inuk.cluster - INFO - master changed to node2
+2026-03-05 18:17:21.000000 labhost-ch2-fm1 inuk.cluster - INFO - master election triggered
+
+2026-03-05 18:17:25.000000 labhost-ch2-fm1 inuk.admin - ERROR - admin network failure detected
+
+2026-03-05 18:18:00.000000 labhost-ch3-fm1 inuk.switch_manager - INFO - Starting switch manager
+2026-03-05 18:18:02.000000 labhost-ch3-fm1 inuk.switchd - INFO - switchd started successfully
+
+2026-03-05 18:18:05.000000 labhost-ch3-fm1 inuk.switchd - ERROR - switchd crashed unexpectedly
+2026-03-05 18:18:06.000000 labhost-ch3-fm1 inuk.switchd - ERROR - switchd terminated
+
+2026-03-05 18:18:10.000000 labhost-ch3-fm1 inuk.vip_manager - ERROR - VIP creation failed
+2026-03-05 18:18:11.000000 labhost-ch3-fm1 inuk.vip_manager - ERROR - vip error detected
+
+2026-03-05 18:18:15.000000 labhost-ch3-fm1 inuk.port_manager - ERROR - port Ethernet7 down
+2026-03-05 18:18:17.000000 labhost-ch3-fm1 inuk.port_manager - INFO - port Ethernet7 up
+
+2026-03-05 18:18:20.000000 labhost-ch3-fm1 inuk.array.hw - INFO - switch status change: retry1 -> healthy
+
+2026-03-05 18:18:25.000000 labhost-ch3-fm1 inuk.admin - ERROR - admin network down
