@@ -1,4 +1,6 @@
 from .base import BaseClassifier
+#Switch changes state (like unknown → retry → healthy) 
+#check for keywords like “status change” or “health” in the message. 
 
 class SwitchHealthClassifier(BaseClassifier):
 

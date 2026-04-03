@@ -1,5 +1,6 @@
 from .base import BaseClassifier
-
+#link aggreagtion failure
+#I detect logs containing “lacp” and also words like “fail”, “down”, or “error”
 class LACPClassifier(BaseClassifier):
 
     def match(self, event):

@@ -1,5 +1,6 @@
 from .base import BaseClassifier
-
+#A port goes down and comes back up → unstable link
+#check if the log message contains the word “port” and either “down” or “up”. 
 class LinkFlapClassifier(BaseClassifier):
 
     def match(self, event):

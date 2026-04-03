@@ -1,5 +1,6 @@
 from .base import BaseClassifier
-
+#leader node changed
+#detect “master” along with “change” or “election”
 class MastershipClassifier(BaseClassifier):
 
     def match(self, event):

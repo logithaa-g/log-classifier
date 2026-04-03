@@ -1,5 +1,7 @@
 from .base import BaseClassifier
 
+#Physical port issues 
+#check for "port" along with "error", "down" or "fault".
 class PortErrorClassifier(BaseClassifier):
 
     def match(self, event):

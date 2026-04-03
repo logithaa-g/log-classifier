@@ -1,5 +1,7 @@
 from .base import BaseClassifier
 
+#Management network problem 
+#check for “admin” and “network” or failure-related words like “down” or “fail”
 class AdminNetClassifier(BaseClassifier):
 
     def match(self, event):

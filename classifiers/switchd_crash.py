@@ -1,5 +1,6 @@
 from .base import BaseClassifier
-
+#Core switch process crashed
+#detect “switchd” with words like “crash”, “failed”, or “terminated
 class SwitchDCrashClassifier(BaseClassifier):
 
     def match(self, event):

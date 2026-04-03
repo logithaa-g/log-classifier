@@ -1,5 +1,6 @@
 from .base import BaseClassifier
-
+#Switch or switchd is starting
+#I check if the message contains “star ng”, “started”, or “ini alizing” along with “switch” or “switchd”
 class SwitchInitClassifier(BaseClassifier):
 
     def match(self, event):

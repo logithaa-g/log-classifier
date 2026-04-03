@@ -1,5 +1,6 @@
 from .base import BaseClassifier
-
+#Virtual IP crea on failed 
+#check for “vip” and either “fail” or “error”.
 class VIPFailureClassifier(BaseClassifier):
 
     def match(self, event):
