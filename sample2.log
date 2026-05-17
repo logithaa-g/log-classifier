@@ -1,0 +1,10 @@
+2026-03-05 19:00:00 spine-sw1 Mastership changed to standby
+2026-03-05 19:00:10 spine-sw1 VIP failure detected on VLAN100
+
+2026-03-05 19:01:00 spine-sw1 switchd crash detected
+2026-03-05 19:01:05 spine-sw1 Starting switchd daemon
+
+2026-03-05 19:02:00 spine-sw1 Port Ethernet7 link DOWN
+2026-03-05 19:02:01 spine-sw1 Port Ethernet8 link DOWN
+2026-03-05 19:02:02 spine-sw1 Port Ethernet9 link DOWN
+2026-03-05 19:02:10 spine-sw1 switch reset detected

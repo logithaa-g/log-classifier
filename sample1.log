@@ -1,0 +1,16 @@
+2026-03-05 18:16:00 labhost-ch1-fm1 #####Starting switch manager#########
+2026-03-05 18:16:02 labhost-ch1-fm1 bcm_be : Starting switchd daemon
+2026-03-05 18:16:02 labhost-ch1-fm1 switchd pid=48821 started successfully
+
+2026-03-05 18:16:10 labhost-ch1-fm1 Port Ethernet1 link DOWN
+2026-03-05 18:16:11 labhost-ch1-fm1 port Ethernet1 error detected
+2026-03-05 18:16:12 labhost-ch1-fm1 Port Ethernet1 link UP
+
+2026-03-05 18:16:20 labhost-ch1-fm1 Port Ethernet3 link DOWN
+2026-03-05 18:16:22 labhost-ch1-fm1 Port Ethernet3 link UP
+
+2026-03-05 18:16:30 labhost-ch1-fm1 LACP timeout on Ethernet5
+2026-03-05 18:16:31 labhost-ch1-fm1 Port Ethernet5 link DOWN
+
+2026-03-05 18:16:40 labhost-ch1-fm1 Switch health retry initiated
+2026-03-05 18:16:41 labhost-ch1-fm1 switch initialization restart

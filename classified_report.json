@@ -1,0 +1,492 @@
+[
+    {
+        "category": "Switch Initialization",
+        "timestamp": "2026-03-05 18:16:00.895374",
+        "host": "labhost-ch1-fm1",
+        "details": "- #####Starting switch manager#########",
+        "severity": "info"
+    },
+    {
+        "category": "Switch Initialization",
+        "timestamp": "2026-03-05 18:16:02.174422",
+        "host": "labhost-ch1-fm1",
+        "details": "- bcm_be : Starting switchd daemon",
+        "severity": "info"
+    },
+    {
+        "category": "Switch Initialization",
+        "timestamp": "2026-03-05 18:16:02.310511",
+        "host": "labhost-ch1-fm1",
+        "details": "- switchd pid=48821 started successfully",
+        "severity": "info"
+    },
+    {
+        "category": "Port Error",
+        "timestamp": "2026-03-05 18:16:10.120000",
+        "host": "labhost-ch1-fm1",
+        "details": "- Port Ethernet1 link DOWN",
+        "severity": "error"
+    },
+    {
+        "category": "Link Flap",
+        "timestamp": "2026-03-05 18:16:10.120000",
+        "host": "labhost-ch1-fm1",
+        "details": "- Port Ethernet1 link DOWN",
+        "severity": "info"
+    },
+    {
+        "category": "Port Error",
+        "timestamp": "2026-03-05 18:16:11.000000",
+        "host": "labhost-ch1-fm1",
+        "details": "- port Ethernet1 error detected",
+        "severity": "error"
+    },
+    {
+        "category": "Link Flap",
+        "timestamp": "2026-03-05 18:16:12.450000",
+        "host": "labhost-ch1-fm1",
+        "details": "- Port Ethernet1 link UP",
+        "severity": "info"
+    },
+    {
+        "category": "Switch Health Transition",
+        "timestamp": "2026-03-05 18:16:17.130999",
+        "host": "labhost-ch1-fm1",
+        "details": "inuk_iom [25733/MainThread]: process_switch_health, update_switch_status, switch(1) status change: unknown -> retry1",
+        "severity": "info"
+    },
+    {
+        "category": "Switch Health Transition",
+        "timestamp": "2026-03-05 18:16:18.000000",
+        "host": "labhost-ch1-fm1",
+        "details": "- switch health degraded",
+        "severity": "info"
+    },
+    {
+        "category": "LACP Failure",
+        "timestamp": "2026-03-05 18:16:20.000000",
+        "host": "labhost-ch1-fm1",
+        "details": "- LACP negotiation failed on port Ethernet2",
+        "severity": "info"
+    },
+    {
+        "category": "LACP Failure",
+        "timestamp": "2026-03-05 18:16:21.000000",
+        "host": "labhost-ch1-fm1",
+        "details": "- LACP down on interface bond0",
+        "severity": "info"
+    },
+    {
+        "category": "SwitchD Crash",
+        "timestamp": "2026-03-05 18:16:25.000000",
+        "host": "labhost-ch1-fm1",
+        "details": "- switchd crashed unexpectedly",
+        "severity": "critical"
+    },
+    {
+        "category": "SwitchD Crash",
+        "timestamp": "2026-03-05 18:16:26.000000",
+        "host": "labhost-ch1-fm1",
+        "details": "- switchd process terminated",
+        "severity": "critical"
+    },
+    {
+        "category": "VIP Creation Failure",
+        "timestamp": "2026-03-05 18:16:30.000000",
+        "host": "labhost-ch1-fm1",
+        "details": "- VIP creation failed due to timeout",
+        "severity": "info"
+    },
+    {
+        "category": "VIP Creation Failure",
+        "timestamp": "2026-03-05 18:16:31.000000",
+        "host": "labhost-ch1-fm1",
+        "details": "- vip error while assigning address",
+        "severity": "info"
+    },
+    {
+        "category": "Admin Network Issue",
+        "timestamp": "2026-03-05 18:16:36.000000",
+        "host": "labhost-ch1-fm1",
+        "details": "- admin network down",
+        "severity": "info"
+    },
+    {
+        "category": "Switch Initialization",
+        "timestamp": "2026-03-05 18:17:00.000000",
+        "host": "labhost-ch2-fm1",
+        "details": "- #####Starting switch manager#########",
+        "severity": "info"
+    },
+    {
+        "category": "Switch Initialization",
+        "timestamp": "2026-03-05 18:17:02.000000",
+        "host": "labhost-ch2-fm1",
+        "details": "- Starting switchd daemon",
+        "severity": "info"
+    },
+    {
+        "category": "Switch Initialization",
+        "timestamp": "2026-03-05 18:17:03.000000",
+        "host": "labhost-ch2-fm1",
+        "details": "- switchd started successfully",
+        "severity": "info"
+    },
+    {
+        "category": "Port Error",
+        "timestamp": "2026-03-05 18:17:10.000000",
+        "host": "labhost-ch2-fm1",
+        "details": "- port Ethernet3 down due to fault",
+        "severity": "error"
+    },
+    {
+        "category": "Link Flap",
+        "timestamp": "2026-03-05 18:17:10.000000",
+        "host": "labhost-ch2-fm1",
+        "details": "- port Ethernet3 down due to fault",
+        "severity": "info"
+    },
+    {
+        "category": "Link Flap",
+        "timestamp": "2026-03-05 18:17:12.000000",
+        "host": "labhost-ch2-fm1",
+        "details": "- port Ethernet3 up",
+        "severity": "info"
+    },
+    {
+        "category": "LACP Failure",
+        "timestamp": "2026-03-05 18:17:15.000000",
+        "host": "labhost-ch2-fm1",
+        "details": "- LACP aggregation failed on bond1",
+        "severity": "info"
+    },
+    {
+        "category": "LACP Failure",
+        "timestamp": "2026-03-05 18:17:16.000000",
+        "host": "labhost-ch2-fm1",
+        "details": "- LACP down on interface bond1",
+        "severity": "info"
+    },
+    {
+        "category": "Mastership Change",
+        "timestamp": "2026-03-05 18:17:20.000000",
+        "host": "labhost-ch2-fm1",
+        "details": "- master changed to node2",
+        "severity": "info"
+    },
+    {
+        "category": "Mastership Change",
+        "timestamp": "2026-03-05 18:17:21.000000",
+        "host": "labhost-ch2-fm1",
+        "details": "- master election triggered",
+        "severity": "info"
+    },
+    {
+        "category": "Admin Network Issue",
+        "timestamp": "2026-03-05 18:17:25.000000",
+        "host": "labhost-ch2-fm1",
+        "details": "- admin network failure detected",
+        "severity": "info"
+    },
+    {
+        "category": "Switch Initialization",
+        "timestamp": "2026-03-05 18:18:00.000000",
+        "host": "labhost-ch3-fm1",
+        "details": "- Starting switch manager",
+        "severity": "info"
+    },
+    {
+        "category": "Switch Initialization",
+        "timestamp": "2026-03-05 18:18:02.000000",
+        "host": "labhost-ch3-fm1",
+        "details": "- switchd started successfully",
+        "severity": "info"
+    },
+    {
+        "category": "SwitchD Crash",
+        "timestamp": "2026-03-05 18:18:05.000000",
+        "host": "labhost-ch3-fm1",
+        "details": "- switchd crashed unexpectedly",
+        "severity": "critical"
+    },
+    {
+        "category": "SwitchD Crash",
+        "timestamp": "2026-03-05 18:18:06.000000",
+        "host": "labhost-ch3-fm1",
+        "details": "- switchd terminated",
+        "severity": "critical"
+    },
+    {
+        "category": "VIP Creation Failure",
+        "timestamp": "2026-03-05 18:18:10.000000",
+        "host": "labhost-ch3-fm1",
+        "details": "- VIP creation failed",
+        "severity": "info"
+    },
+    {
+        "category": "VIP Creation Failure",
+        "timestamp": "2026-03-05 18:18:11.000000",
+        "host": "labhost-ch3-fm1",
+        "details": "- vip error detected",
+        "severity": "info"
+    },
+    {
+        "category": "Port Error",
+        "timestamp": "2026-03-05 18:18:15.000000",
+        "host": "labhost-ch3-fm1",
+        "details": "- port Ethernet7 down",
+        "severity": "error"
+    },
+    {
+        "category": "Link Flap",
+        "timestamp": "2026-03-05 18:18:15.000000",
+        "host": "labhost-ch3-fm1",
+        "details": "- port Ethernet7 down",
+        "severity": "info"
+    },
+    {
+        "category": "Link Flap",
+        "timestamp": "2026-03-05 18:18:17.000000",
+        "host": "labhost-ch3-fm1",
+        "details": "- port Ethernet7 up",
+        "severity": "info"
+    },
+    {
+        "category": "Switch Health Transition",
+        "timestamp": "2026-03-05 18:18:20.000000",
+        "host": "labhost-ch3-fm1",
+        "details": "- switch status change: retry1 -> healthy",
+        "severity": "info"
+    },
+    {
+        "category": "Admin Network Issue",
+        "timestamp": "2026-03-05 18:18:25.000000",
+        "host": "labhost-ch3-fm1",
+        "details": "- admin network down",
+        "severity": "info"
+    },
+    {
+        "category": "Switch Initialization",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 18:16:00 labhost-ch1-fm1 #####Starting switch manager#########",
+        "severity": "info"
+    },
+    {
+        "category": "Switch Initialization",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 18:16:02 labhost-ch1-fm1 bcm_be : Starting switchd daemon",
+        "severity": "info"
+    },
+    {
+        "category": "Switch Initialization",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 18:16:02 labhost-ch1-fm1 switchd pid=48821 started successfully",
+        "severity": "info"
+    },
+    {
+        "category": "Port Error",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 18:16:10 labhost-ch1-fm1 Port Ethernet1 link DOWN",
+        "severity": "error"
+    },
+    {
+        "category": "Link Flap",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 18:16:10 labhost-ch1-fm1 Port Ethernet1 link DOWN",
+        "severity": "info"
+    },
+    {
+        "category": "Port Error",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 18:16:11 labhost-ch1-fm1 port Ethernet1 error detected",
+        "severity": "error"
+    },
+    {
+        "category": "Link Flap",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 18:16:12 labhost-ch1-fm1 Port Ethernet1 link UP",
+        "severity": "info"
+    },
+    {
+        "category": "Port Error",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 18:16:20 labhost-ch1-fm1 Port Ethernet3 link DOWN",
+        "severity": "error"
+    },
+    {
+        "category": "Link Flap",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 18:16:20 labhost-ch1-fm1 Port Ethernet3 link DOWN",
+        "severity": "info"
+    },
+    {
+        "category": "Link Flap",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 18:16:22 labhost-ch1-fm1 Port Ethernet3 link UP",
+        "severity": "info"
+    },
+    {
+        "category": "Port Error",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 18:16:31 labhost-ch1-fm1 Port Ethernet5 link DOWN",
+        "severity": "error"
+    },
+    {
+        "category": "Link Flap",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 18:16:31 labhost-ch1-fm1 Port Ethernet5 link DOWN",
+        "severity": "info"
+    },
+    {
+        "category": "Switch Health Transition",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 18:16:40 labhost-ch1-fm1 Switch health retry initiated",
+        "severity": "info"
+    },
+    {
+        "category": "Mastership Change",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 19:00:00 spine-sw1 Mastership changed to standby",
+        "severity": "info"
+    },
+    {
+        "category": "VIP Creation Failure",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 19:00:10 spine-sw1 VIP failure detected on VLAN100",
+        "severity": "info"
+    },
+    {
+        "category": "SwitchD Crash",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 19:01:00 spine-sw1 switchd crash detected",
+        "severity": "critical"
+    },
+    {
+        "category": "Switch Initialization",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 19:01:05 spine-sw1 Starting switchd daemon",
+        "severity": "info"
+    },
+    {
+        "category": "Port Error",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 19:02:00 spine-sw1 Port Ethernet7 link DOWN",
+        "severity": "error"
+    },
+    {
+        "category": "Link Flap",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 19:02:00 spine-sw1 Port Ethernet7 link DOWN",
+        "severity": "info"
+    },
+    {
+        "category": "Port Error",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 19:02:01 spine-sw1 Port Ethernet8 link DOWN",
+        "severity": "error"
+    },
+    {
+        "category": "Link Flap",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 19:02:01 spine-sw1 Port Ethernet8 link DOWN",
+        "severity": "info"
+    },
+    {
+        "category": "Port Error",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 19:02:02 spine-sw1 Port Ethernet9 link DOWN",
+        "severity": "error"
+    },
+    {
+        "category": "Link Flap",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 19:02:02 spine-sw1 Port Ethernet9 link DOWN",
+        "severity": "info"
+    },
+    {
+        "category": "Admin Network Issue",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 20:10:00 leaf-sw2 Admin network unreachable",
+        "severity": "info"
+    },
+    {
+        "category": "VIP Creation Failure",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 20:10:05 leaf-sw2 VIP failure detected",
+        "severity": "info"
+    },
+    {
+        "category": "Port Error",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 20:11:00 leaf-sw2 Port Ethernet12 link DOWN",
+        "severity": "error"
+    },
+    {
+        "category": "Link Flap",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 20:11:00 leaf-sw2 Port Ethernet12 link DOWN",
+        "severity": "info"
+    },
+    {
+        "category": "Link Flap",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 20:11:02 leaf-sw2 Port Ethernet12 link UP",
+        "severity": "info"
+    },
+    {
+        "category": "Port Error",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 20:11:10 leaf-sw2 Port Ethernet15 link DOWN",
+        "severity": "error"
+    },
+    {
+        "category": "Link Flap",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 20:11:10 leaf-sw2 Port Ethernet15 link DOWN",
+        "severity": "info"
+    },
+    {
+        "category": "Link Flap",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 20:11:12 leaf-sw2 Port Ethernet15 link UP",
+        "severity": "info"
+    },
+    {
+        "category": "Switch Health Transition",
+        "timestamp": "UNKNOWN",
+        "host": "UNKNOWN",
+        "details": "2026-03-05 20:12:00 leaf-sw2 Switch health retry initiated",
+        "severity": "info"
+    }
+]
