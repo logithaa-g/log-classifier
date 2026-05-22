@@ -19,7 +19,9 @@ from classifiers.link_flap import LinkFlapClassifier
 
 def main():
 
-    parser = argparse.ArgumentParser(description="Log Pattern Classifier")
+    parser = argparse.ArgumentParser(
+        description="Log Pattern Classifier"
+    )
 
     parser.add_argument(
         "--input",
@@ -29,18 +31,24 @@ def main():
 
     parser.add_argument(
         "--output",
-        required=True,
-        help="Output JSON report"
+        default="report.json",
+        help="Output report file"
     )
 
     parser.add_argument(
-        "--filter-category",
-        help="Filter by category"
+        "--categories",
+        help="Filter categories (comma separated)"
     )
 
     parser.add_argument(
         "--severity",
-        help="Filter by severity"
+        help="Filter severity levels (comma separated)"
+    )
+
+    parser.add_argument(
+        "--format",
+        default="json",
+        help="Output format: json,text"
     )
 
     args = parser.parse_args()
@@ -117,30 +125,57 @@ def main():
                     results.append(result)
 
     # ==========================================
-    # Optional category filtering
+    # Category filtering
     # ==========================================
-    if args.filter_category:
+    if args.categories:
+
+        selected_categories = [
+            c.strip().lower().replace("_", " ")
+            for c in args.categories.split(",")
+        ]
 
         results = [
             r for r in results
-            if r.get("category") == args.filter_category
+            if r.get("category", "").lower()
+            in selected_categories
         ]
-
     # ==========================================
-    # Optional severity filtering
+    # Severity filtering
     # ==========================================
     if args.severity:
 
+        selected_severity = [
+            s.strip().lower()
+            for s in args.severity.split(",")
+        ]
+
         results = [
             r for r in results
-            if r.get("severity", "").lower() == args.severity.lower()
+            if r.get("severity", "").lower()
+            in selected_severity
         ]
 
     # ==========================================
-    # Write final output
+    # JSON Output
     # ==========================================
-    with open(args.output, "w") as f:
-        json.dump(results, f, indent=4)
+    if "json" in args.format.lower():
+
+        with open(args.output, "w") as f:
+            json.dump(results, f, indent=4)
+
+    # ==========================================
+    # Text Output
+    # ==========================================
+    if "text" in args.format.lower():
+
+        print("\n========== Classified Events ==========")
+
+        for result in results:
+            print(
+                f"[{result.get('severity', 'unknown').upper()}] "
+                f"{result.get('category')} -> "
+                f"{result}"
+            )
 
     # ==========================================
     # Console summary

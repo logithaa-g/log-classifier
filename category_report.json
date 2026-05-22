@@ -1,0 +1,44 @@
+[
+    {
+        "category": "Link Flap",
+        "timestamp": "2026-03-05 18:16:10.120000",
+        "host": "labhost-ch1-fm1",
+        "details": "- Port Ethernet1 link DOWN",
+        "severity": "info"
+    },
+    {
+        "category": "Link Flap",
+        "timestamp": "2026-03-05 18:16:12.450000",
+        "host": "labhost-ch1-fm1",
+        "details": "- Port Ethernet1 link UP",
+        "severity": "info"
+    },
+    {
+        "category": "Link Flap",
+        "timestamp": "2026-03-05 18:17:10.000000",
+        "host": "labhost-ch2-fm1",
+        "details": "- port Ethernet3 down due to fault",
+        "severity": "info"
+    },
+    {
+        "category": "Link Flap",
+        "timestamp": "2026-03-05 18:17:12.000000",
+        "host": "labhost-ch2-fm1",
+        "details": "- port Ethernet3 up",
+        "severity": "info"
+    },
+    {
+        "category": "Link Flap",
+        "timestamp": "2026-03-05 18:18:15.000000",
+        "host": "labhost-ch3-fm1",
+        "details": "- port Ethernet7 down",
+        "severity": "info"
+    },
+    {
+        "category": "Link Flap",
+        "timestamp": "2026-03-05 18:18:17.000000",
+        "host": "labhost-ch3-fm1",
+        "details": "- port Ethernet7 up",
+        "severity": "info"
+    }
+]

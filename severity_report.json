@@ -1,0 +1,30 @@
+[
+    {
+        "category": "SwitchD Crash",
+        "timestamp": "2026-03-05 18:16:25.000000",
+        "host": "labhost-ch1-fm1",
+        "details": "- switchd crashed unexpectedly",
+        "severity": "critical"
+    },
+    {
+        "category": "SwitchD Crash",
+        "timestamp": "2026-03-05 18:16:26.000000",
+        "host": "labhost-ch1-fm1",
+        "details": "- switchd process terminated",
+        "severity": "critical"
+    },
+    {
+        "category": "SwitchD Crash",
+        "timestamp": "2026-03-05 18:18:05.000000",
+        "host": "labhost-ch3-fm1",
+        "details": "- switchd crashed unexpectedly",
+        "severity": "critical"
+    },
+    {
+        "category": "SwitchD Crash",
+        "timestamp": "2026-03-05 18:18:06.000000",
+        "host": "labhost-ch3-fm1",
+        "details": "- switchd terminated",
+        "severity": "critical"
+    }
+]
