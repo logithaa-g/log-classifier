@@ -1,30 +1,114 @@
 [
     {
         "category": "SwitchD Crash",
-        "timestamp": "2026-03-05 18:16:25.000000",
+        "timestamp": "2026-03-05 18:16:30.000000",
         "host": "labhost-ch1-fm1",
         "details": "- switchd crashed unexpectedly",
         "severity": "critical"
     },
     {
         "category": "SwitchD Crash",
-        "timestamp": "2026-03-05 18:16:26.000000",
+        "timestamp": "2026-03-05 18:16:31.000000",
         "host": "labhost-ch1-fm1",
         "details": "- switchd process terminated",
         "severity": "critical"
     },
     {
         "category": "SwitchD Crash",
-        "timestamp": "2026-03-05 18:18:05.000000",
+        "timestamp": "2026-03-05 18:16:32.000000",
+        "host": "labhost-ch1-fm1",
+        "details": "- core dump written to /var/crash/switchd.48821.core",
+        "severity": "critical"
+    },
+    {
+        "category": "SwitchD Crash",
+        "timestamp": "2026-03-05 18:17:47.000000",
+        "host": "labhost-ch2-fm1",
+        "details": "- switchd crashed unexpectedly",
+        "severity": "critical"
+    },
+    {
+        "category": "SwitchD Crash",
+        "timestamp": "2026-03-05 18:17:48.000000",
+        "host": "labhost-ch2-fm1",
+        "details": "- switchd process terminated: signal 11 (SIGSEGV)",
+        "severity": "critical"
+    },
+    {
+        "category": "SwitchD Crash",
+        "timestamp": "2026-03-05 18:17:49.000000",
+        "host": "labhost-ch2-fm1",
+        "details": "- core dump written to /var/crash/switchd.49100.core",
+        "severity": "critical"
+    },
+    {
+        "category": "SwitchD Crash",
+        "timestamp": "2026-03-05 18:18:07.000000",
         "host": "labhost-ch3-fm1",
         "details": "- switchd crashed unexpectedly",
         "severity": "critical"
     },
     {
         "category": "SwitchD Crash",
-        "timestamp": "2026-03-05 18:18:06.000000",
+        "timestamp": "2026-03-05 18:18:08.000000",
         "host": "labhost-ch3-fm1",
-        "details": "- switchd terminated",
+        "details": "- switchd terminated: watchdog timeout",
+        "severity": "critical"
+    },
+    {
+        "category": "SwitchD Crash",
+        "timestamp": "2026-03-05 18:18:09.000000",
+        "host": "labhost-ch3-fm1",
+        "details": "- core dump written to /var/crash/switchd.49300.core",
+        "severity": "critical"
+    },
+    {
+        "category": "SwitchD Crash",
+        "timestamp": "2026-03-05 18:18:12.000000",
+        "host": "labhost-ch3-fm1",
+        "details": "- switchd restart failed (attempt 1/3)",
+        "severity": "critical"
+    },
+    {
+        "category": "SwitchD Crash",
+        "timestamp": "2026-03-05 18:18:16.000000",
+        "host": "labhost-ch3-fm1",
+        "details": "- switchd restart failed (attempt 2/3)",
+        "severity": "critical"
+    },
+    {
+        "category": "SwitchD Crash",
+        "timestamp": "2026-03-05 18:19:27.000000",
+        "host": "labhost-ch4-fm1",
+        "details": "- switchd crashed unexpectedly",
+        "severity": "critical"
+    },
+    {
+        "category": "SwitchD Crash",
+        "timestamp": "2026-03-05 18:19:28.000000",
+        "host": "labhost-ch4-fm1",
+        "details": "- switchd process terminated: out of memory",
+        "severity": "critical"
+    },
+    {
+        "category": "SwitchD Crash",
+        "timestamp": "2026-03-05 18:19:29.000000",
+        "host": "labhost-ch4-fm1",
+        "details": "- core dump written to /var/crash/switchd.49500.core",
+        "severity": "critical"
+    },
+    {
+        "category": "SwitchD Crash",
+        "timestamp": "2026-03-05 18:20:33.000000",
+        "host": "labhost-ch5-fm1",
+        "details": "- switchd crashed unexpectedly",
+        "severity": "critical"
+    },
+    {
+        "category": "SwitchD Crash",
+        "timestamp": "2026-03-05 18:20:34.000000",
+        "host": "labhost-ch5-fm1",
+        "details": "- switchd terminated: SIGABRT",
         "severity": "critical"
     }
 ]

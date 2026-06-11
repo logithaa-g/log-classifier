@@ -1,3 +1,10 @@
+# ==========================================================
+# Timeline Generator
+# Purpose:
+# Organizes events chronologically to help understand
+# the sequence of actions leading to an incident.
+# ==========================================================
+
 import pandas as pd
 import plotly.express as px
 

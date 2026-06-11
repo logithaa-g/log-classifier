@@ -1,55 +1,284 @@
-2026-03-05 18:16:00.895374 labhost-ch1-fm1 inuk.switch_manager - INFO - #####Starting switch manager#########
-2026-03-05 18:16:02.174422 labhost-ch1-fm1 inuk.switch_manager - INFO - bcm_be : Starting switchd daemon
-2026-03-05 18:16:02.310511 labhost-ch1-fm1 inuk.switch_manager - INFO - switchd pid=48821 started successfully
+2026-03-05 18:15:50.000000 labhost-ch1-fm1 inuk.switch_manager - INFO - Initializing fabric manager on chassis 1
+2026-03-05 18:15:51.000000 labhost-ch1-fm1 inuk.switch_manager - INFO - Loading switch configuration from /etc/inuk/switch.conf
+2026-03-05 18:15:52.000000 labhost-ch1-fm1 inuk.switch_manager - INFO - Configuration loaded: 48 ports, 2 uplinks
+2026-03-05 18:15:53.000000 labhost-ch1-fm1 inuk.switch_manager - INFO - #####Starting switch manager#########
+2026-03-05 18:15:54.174422 labhost-ch1-fm1 inuk.switch_manager - INFO - bcm_be : Starting switchd daemon
+2026-03-05 18:15:55.310511 labhost-ch1-fm1 inuk.switch_manager - INFO - switchd pid=48821 started successfully
+2026-03-05 18:15:56.000000 labhost-ch1-fm1 inuk.switchd - INFO - ASIC initialized: BCM56960
+2026-03-05 18:15:57.000000 labhost-ch1-fm1 inuk.switchd - INFO - Port map loaded: 48 entries
+2026-03-05 18:15:58.000000 labhost-ch1-fm1 inuk.switchd - INFO - Spanning tree protocol enabled
+2026-03-05 18:15:59.000000 labhost-ch1-fm1 inuk.switchd - INFO - ARP table initialized
 
-2026-03-05 18:16:10.120000 labhost-ch1-fm1 inuk.switch_manager - WARN - Port Ethernet1 link DOWN
-2026-03-05 18:16:11.000000 labhost-ch1-fm1 inuk.port_manager - ERROR - port Ethernet1 error detected
-2026-03-05 18:16:12.450000 labhost-ch1-fm1 inuk.switch_manager - INFO - Port Ethernet1 link UP
+2026-03-05 18:16:00.000000 labhost-ch1-fm1 inuk.port_manager - INFO - Port Ethernet1 initialized
+2026-03-05 18:16:01.000000 labhost-ch1-fm1 inuk.port_manager - INFO - Port Ethernet2 initialized
+2026-03-05 18:16:02.000000 labhost-ch1-fm1 inuk.port_manager - INFO - Port Ethernet3 initialized
+2026-03-05 18:16:03.000000 labhost-ch1-fm1 inuk.port_manager - INFO - Port Ethernet4 initialized
+2026-03-05 18:16:04.000000 labhost-ch1-fm1 inuk.port_manager - INFO - Port Ethernet5 initialized
+2026-03-05 18:16:05.000000 labhost-ch1-fm1 inuk.port_manager - INFO - Port Ethernet6 initialized
 
-2026-03-05 18:16:15.003882 labhost-ch1-fm1 inuk.switchd: Port configuration: loading port map from ASIC
-2026-03-05 18:16:17.130999 labhost-ch1-fm1 inuk.array.hw.chassis_ha INFO inuk_iom [25733/MainThread]: process_switch_health, update_switch_status, switch(1) status change: unknown -> retry1
-2026-03-05 18:16:18.000000 labhost-ch1-fm1 inuk.array.hw - INFO - switch health degraded
+2026-03-05 18:16:08.000000 labhost-ch1-fm1 inuk.switch_manager - WARN - Port Ethernet1 link DOWN
+2026-03-05 18:16:09.000000 labhost-ch1-fm1 inuk.port_manager - ERROR - port Ethernet1 error detected
+2026-03-05 18:16:10.000000 labhost-ch1-fm1 inuk.port_manager - ERROR - port Ethernet1 CRC errors: 142
+2026-03-05 18:16:11.000000 labhost-ch1-fm1 inuk.port_manager - ERROR - port Ethernet1 RX drops: 88
+2026-03-05 18:16:12.000000 labhost-ch1-fm1 inuk.switch_manager - INFO - Port Ethernet1 link UP
+2026-03-05 18:16:13.000000 labhost-ch1-fm1 inuk.switch_manager - WARN - Port Ethernet1 link DOWN
+2026-03-05 18:16:14.000000 labhost-ch1-fm1 inuk.switch_manager - INFO - Port Ethernet1 link UP
+2026-03-05 18:16:15.000000 labhost-ch1-fm1 inuk.switch_manager - WARN - Port Ethernet1 link DOWN
+2026-03-05 18:16:16.000000 labhost-ch1-fm1 inuk.switch_manager - INFO - Port Ethernet1 link UP
+2026-03-05 18:16:17.000000 labhost-ch1-fm1 inuk.port_manager - ERROR - port Ethernet1 flapping detected: 4 transitions in 9s
 
-2026-03-05 18:16:20.000000 labhost-ch1-fm1 inuk.lacp - ERROR - LACP negotiation failed on port Ethernet2
-2026-03-05 18:16:21.000000 labhost-ch1-fm1 inuk.lacp - ERROR - LACP down on interface bond0
+2026-03-05 18:16:18.000000 labhost-ch1-fm1 inuk.switchd: Port configuration: loading port map from ASIC
+2026-03-05 18:16:19.130999 labhost-ch1-fm1 inuk.array.hw.chassis_ha INFO inuk_iom [25733/MainThread]: process_switch_health, update_switch_status, switch(1) status change: unknown -> retry1
+2026-03-05 18:16:20.000000 labhost-ch1-fm1 inuk.array.hw - INFO - switch health degraded
+2026-03-05 18:16:21.000000 labhost-ch1-fm1 inuk.array.hw - WARN - switch(1) health check failed: timeout
+2026-03-05 18:16:22.000000 labhost-ch1-fm1 inuk.array.hw - WARN - switch(1) health check failed: timeout
+2026-03-05 18:16:23.000000 labhost-ch1-fm1 inuk.array.hw - ERROR - switch(1) health check failed: 3 consecutive timeouts
 
-2026-03-05 18:16:25.000000 labhost-ch1-fm1 inuk.switchd - ERROR - switchd crashed unexpectedly
-2026-03-05 18:16:26.000000 labhost-ch1-fm1 inuk.switchd - ERROR - switchd process terminated
+2026-03-05 18:16:24.000000 labhost-ch1-fm1 inuk.lacp - INFO - LACP initialized on bond0
+2026-03-05 18:16:25.000000 labhost-ch1-fm1 inuk.lacp - ERROR - LACP negotiation failed on port Ethernet2
+2026-03-05 18:16:26.000000 labhost-ch1-fm1 inuk.lacp - ERROR - LACP down on interface bond0
+2026-03-05 18:16:27.000000 labhost-ch1-fm1 inuk.lacp - WARN - LACP PDU timeout on Ethernet2
+2026-03-05 18:16:28.000000 labhost-ch1-fm1 inuk.lacp - ERROR - LACP partner lost on bond0
+2026-03-05 18:16:29.000000 labhost-ch1-fm1 inuk.lacp - INFO - LACP attempting renegotiation on bond0
 
-2026-03-05 18:16:30.000000 labhost-ch1-fm1 inuk.vip_manager - ERROR - VIP creation failed due to timeout
-2026-03-05 18:16:31.000000 labhost-ch1-fm1 inuk.vip_manager - ERROR - vip error while assigning address
+2026-03-05 18:16:30.000000 labhost-ch1-fm1 inuk.switchd - ERROR - switchd crashed unexpectedly
+2026-03-05 18:16:31.000000 labhost-ch1-fm1 inuk.switchd - ERROR - switchd process terminated
+2026-03-05 18:16:32.000000 labhost-ch1-fm1 inuk.switchd - ERROR - core dump written to /var/crash/switchd.48821.core
+2026-03-05 18:16:33.000000 labhost-ch1-fm1 inuk.switch_manager - WARN - switchd watchdog triggered
+2026-03-05 18:16:34.000000 labhost-ch1-fm1 inuk.switch_manager - INFO - Attempting switchd restart (attempt 1/3)
+2026-03-05 18:16:36.000000 labhost-ch1-fm1 inuk.switchd - INFO - switchd pid=48955 started successfully
+2026-03-05 18:16:37.000000 labhost-ch1-fm1 inuk.switchd - INFO - ASIC re-initialized after crash recovery
 
-2026-03-05 18:16:35.000000 labhost-ch1-fm1 inuk.admin - INFO - Admin interface initialized successfully
+2026-03-05 18:16:38.000000 labhost-ch1-fm1 inuk.vip_manager - INFO - VIP allocation starting for cluster vip-pool-1
+2026-03-05 18:16:39.000000 labhost-ch1-fm1 inuk.vip_manager - ERROR - VIP creation failed due to timeout
+2026-03-05 18:16:40.000000 labhost-ch1-fm1 inuk.vip_manager - ERROR - vip error while assigning address 10.0.1.100
+2026-03-05 18:16:41.000000 labhost-ch1-fm1 inuk.vip_manager - ERROR - VIP pool exhausted: no free addresses in range 10.0.1.0/24
+2026-03-05 18:16:42.000000 labhost-ch1-fm1 inuk.vip_manager - WARN - Retrying VIP allocation (attempt 2/3)
+2026-03-05 18:16:43.000000 labhost-ch1-fm1 inuk.vip_manager - ERROR - VIP allocation retry failed
+
+2026-03-05 18:16:44.000000 labhost-ch1-fm1 inuk.admin - INFO - Admin interface initialized successfully
 random unexpected log line without proper format
-2026-03-05 18:16:36.000000 labhost-ch1-fm1 inuk.admin - ERROR - admin network down
+corrupted entry: ���� binary data follows
+2026-03-05 18:16:45.000000 labhost-ch1-fm1 inuk.admin - ERROR - admin network down
+2026-03-05 18:16:46.000000 labhost-ch1-fm1 inuk.admin - ERROR - admin NIC unreachable: bond1
+2026-03-05 18:16:47.000000 labhost-ch1-fm1 inuk.admin - WARN - Falling back to out-of-band management
 
-2026-03-05 18:17:00.000000 labhost-ch2-fm1 inuk.switch_manager - INFO - #####Starting switch manager#########
-2026-03-05 18:17:02.000000 labhost-ch2-fm1 inuk.switch_manager - INFO - Starting switchd daemon
-2026-03-05 18:17:03.000000 labhost-ch2-fm1 inuk.switchd - INFO - switchd started successfully
+2026-03-05 18:16:48.000000 labhost-ch1-fm1 inuk.cluster - INFO - Cluster heartbeat OK: 4/4 nodes reachable
+2026-03-05 18:16:50.000000 labhost-ch1-fm1 inuk.cluster - WARN - Cluster heartbeat degraded: 3/4 nodes reachable
+2026-03-05 18:16:52.000000 labhost-ch1-fm1 inuk.cluster - ERROR - Cluster heartbeat failed: node labhost-ch4-fm1 unreachable
+2026-03-05 18:16:54.000000 labhost-ch1-fm1 inuk.cluster - ERROR - Initiating failover for labhost-ch4-fm1
+
+2026-03-05 18:16:56.000000 labhost-ch1-fm1 inuk.port_manager - ERROR - port Ethernet3 down due to SFP fault
+2026-03-05 18:16:57.000000 labhost-ch1-fm1 inuk.port_manager - ERROR - SFP module missing on Ethernet3
+2026-03-05 18:16:58.000000 labhost-ch1-fm1 inuk.port_manager - WARN - Port Ethernet3 disabled: hardware fault
+2026-03-05 18:16:59.000000 labhost-ch1-fm1 inuk.port_manager - INFO - Port Ethernet4 link UP: 100GbE
+
+2026-03-05 18:17:00.000000 labhost-ch2-fm1 inuk.switch_manager - INFO - Initializing fabric manager on chassis 2
+2026-03-05 18:17:01.000000 labhost-ch2-fm1 inuk.switch_manager - INFO - Loading switch configuration from /etc/inuk/switch.conf
+2026-03-05 18:17:02.000000 labhost-ch2-fm1 inuk.switch_manager - INFO - #####Starting switch manager#########
+2026-03-05 18:17:03.000000 labhost-ch2-fm1 inuk.switch_manager - INFO - Starting switchd daemon
+2026-03-05 18:17:04.000000 labhost-ch2-fm1 inuk.switchd - INFO - switchd started successfully
+2026-03-05 18:17:05.000000 labhost-ch2-fm1 inuk.switchd - INFO - ASIC initialized: BCM56960
+2026-03-05 18:17:06.000000 labhost-ch2-fm1 inuk.switchd - INFO - Port map loaded: 48 entries
+
+2026-03-05 18:17:07.000000 labhost-ch2-fm1 inuk.port_manager - INFO - Port Ethernet1 initialized
+2026-03-05 18:17:08.000000 labhost-ch2-fm1 inuk.port_manager - INFO - Port Ethernet2 initialized
+2026-03-05 18:17:09.000000 labhost-ch2-fm1 inuk.port_manager - INFO - Port Ethernet3 initialized
 
 2026-03-05 18:17:10.000000 labhost-ch2-fm1 inuk.port_manager - ERROR - port Ethernet3 down due to fault
+2026-03-05 18:17:11.000000 labhost-ch2-fm1 inuk.port_manager - ERROR - port Ethernet3 TX error count: 512
 2026-03-05 18:17:12.000000 labhost-ch2-fm1 inuk.port_manager - INFO - port Ethernet3 up
+2026-03-05 18:17:13.000000 labhost-ch2-fm1 inuk.port_manager - ERROR - port Ethernet3 down due to fault
+2026-03-05 18:17:14.000000 labhost-ch2-fm1 inuk.port_manager - INFO - port Ethernet3 up
+2026-03-05 18:17:15.000000 labhost-ch2-fm1 inuk.port_manager - ERROR - port Ethernet3 flapping: 3 state changes in 5s
 
-2026-03-05 18:17:15.000000 labhost-ch2-fm1 inuk.lacp - ERROR - LACP aggregation failed on bond1
-2026-03-05 18:17:16.000000 labhost-ch2-fm1 inuk.lacp - ERROR - LACP down on interface bond1
+2026-03-05 18:17:16.000000 labhost-ch2-fm1 inuk.lacp - INFO - LACP initialized on bond1
+2026-03-05 18:17:17.000000 labhost-ch2-fm1 inuk.lacp - ERROR - LACP aggregation failed on bond1
+2026-03-05 18:17:18.000000 labhost-ch2-fm1 inuk.lacp - ERROR - LACP down on interface bond1
+2026-03-05 18:17:19.000000 labhost-ch2-fm1 inuk.lacp - ERROR - LACP partner timeout on Ethernet4
 
 2026-03-05 18:17:20.000000 labhost-ch2-fm1 inuk.cluster - INFO - master changed to node2
 2026-03-05 18:17:21.000000 labhost-ch2-fm1 inuk.cluster - INFO - master election triggered
+2026-03-05 18:17:22.000000 labhost-ch2-fm1 inuk.cluster - WARN - master election quorum borderline: 3/5 votes
+2026-03-05 18:17:23.000000 labhost-ch2-fm1 inuk.cluster - INFO - master election complete: labhost-ch2-fm1 elected
 
-2026-03-05 18:17:25.000000 labhost-ch2-fm1 inuk.admin - ERROR - admin network failure detected
+2026-03-05 18:17:24.000000 labhost-ch2-fm1 inuk.admin - ERROR - admin network failure detected
+2026-03-05 18:17:25.000000 labhost-ch2-fm1 inuk.admin - ERROR - admin interface bond1 down
+2026-03-05 18:17:26.000000 labhost-ch2-fm1 inuk.admin - ERROR - SNMP trap failed: unreachable 10.0.0.1
+2026-03-05 18:17:27.000000 labhost-ch2-fm1 inuk.admin - WARN - syslog forwarding interrupted
 
-2026-03-05 18:18:00.000000 labhost-ch3-fm1 inuk.switch_manager - INFO - Starting switch manager
+2026-03-05 18:17:28.000000 labhost-ch2-fm1 inuk.vip_manager - INFO - VIP allocation starting for cluster vip-pool-2
+2026-03-05 18:17:29.000000 labhost-ch2-fm1 inuk.vip_manager - INFO - VIP 10.0.2.50 assigned successfully
+2026-03-05 18:17:30.000000 labhost-ch2-fm1 inuk.vip_manager - INFO - VIP 10.0.2.51 assigned successfully
+
+2026-03-05 18:17:31.000000 labhost-ch2-fm1 inuk.switch_manager - WARN - CPU utilization high: 87%
+2026-03-05 18:17:32.000000 labhost-ch2-fm1 inuk.switch_manager - ERROR - Control plane overload: packet drops on CPU queue
+2026-03-05 18:17:33.000000 labhost-ch2-fm1 inuk.switch_manager - ERROR - ACL table full: 4096/4096 entries used
+2026-03-05 18:17:34.000000 labhost-ch2-fm1 inuk.switch_manager - WARN - ARP table 90% full: 9216/10240 entries
+
+2026-03-05 18:17:35.000000 labhost-ch2-fm1 inuk.array.hw - INFO - switch(2) health check OK
+2026-03-05 18:17:36.000000 labhost-ch2-fm1 inuk.array.hw - INFO - switch(2) temperature: 62C (normal)
+2026-03-05 18:17:37.000000 labhost-ch2-fm1 inuk.array.hw - WARN - switch(2) temperature: 78C (high)
+2026-03-05 18:17:38.000000 labhost-ch2-fm1 inuk.array.hw - ERROR - switch(2) temperature: 91C (critical) - throttling
+
+2026-03-05 18:17:39.000000 labhost-ch2-fm1 inuk.port_manager - INFO - Port Ethernet5 link UP: 25GbE
+2026-03-05 18:17:40.000000 labhost-ch2-fm1 inuk.port_manager - INFO - Port Ethernet6 link UP: 25GbE
+2026-03-05 18:17:41.000000 labhost-ch2-fm1 inuk.port_manager - WARN - Port Ethernet7 autoneg failed: defaulting to 10GbE
+2026-03-05 18:17:42.000000 labhost-ch2-fm1 inuk.port_manager - ERROR - Port Ethernet8 link DOWN: signal lost
+
+2026-03-05 18:17:43.000000 labhost-ch2-fm1 inuk.switchd - INFO - FIB updated: 1024 routes active
+2026-03-05 18:17:44.000000 labhost-ch2-fm1 inuk.switchd - WARN - FIB near capacity: 15800/16384 routes
+2026-03-05 18:17:45.000000 labhost-ch2-fm1 inuk.switchd - ERROR - FIB overflow: route install failed for 192.168.100.0/24
+
+another malformed line with no timestamp or level
+2026-03-05 18:17:46.000000 labhost-ch2-fm1 inuk.switchd - INFO - FIB compaction triggered
+
+2026-03-05 18:17:47.000000 labhost-ch2-fm1 inuk.switchd - ERROR - switchd crashed unexpectedly
+2026-03-05 18:17:48.000000 labhost-ch2-fm1 inuk.switchd - ERROR - switchd process terminated: signal 11 (SIGSEGV)
+2026-03-05 18:17:49.000000 labhost-ch2-fm1 inuk.switchd - ERROR - core dump written to /var/crash/switchd.49100.core
+2026-03-05 18:17:50.000000 labhost-ch2-fm1 inuk.switch_manager - WARN - switchd watchdog triggered
+2026-03-05 18:17:51.000000 labhost-ch2-fm1 inuk.switch_manager - INFO - Attempting switchd restart (attempt 1/3)
+2026-03-05 18:17:53.000000 labhost-ch2-fm1 inuk.switchd - INFO - switchd pid=49200 started successfully
+
+2026-03-05 18:18:00.000000 labhost-ch3-fm1 inuk.switch_manager - INFO - Initializing fabric manager on chassis 3
+2026-03-05 18:18:01.000000 labhost-ch3-fm1 inuk.switch_manager - INFO - #####Starting switch manager#########
 2026-03-05 18:18:02.000000 labhost-ch3-fm1 inuk.switchd - INFO - switchd started successfully
+2026-03-05 18:18:03.000000 labhost-ch3-fm1 inuk.switchd - INFO - ASIC initialized: BCM56960
+2026-03-05 18:18:04.000000 labhost-ch3-fm1 inuk.switchd - INFO - Port map loaded: 48 entries
 
-2026-03-05 18:18:05.000000 labhost-ch3-fm1 inuk.switchd - ERROR - switchd crashed unexpectedly
-2026-03-05 18:18:06.000000 labhost-ch3-fm1 inuk.switchd - ERROR - switchd terminated
+2026-03-05 18:18:05.000000 labhost-ch3-fm1 inuk.port_manager - INFO - Port Ethernet1 initialized
+2026-03-05 18:18:06.000000 labhost-ch3-fm1 inuk.port_manager - INFO - Port Ethernet2 initialized
 
-2026-03-05 18:18:10.000000 labhost-ch3-fm1 inuk.vip_manager - ERROR - VIP creation failed
-2026-03-05 18:18:11.000000 labhost-ch3-fm1 inuk.vip_manager - ERROR - vip error detected
+2026-03-05 18:18:07.000000 labhost-ch3-fm1 inuk.switchd - ERROR - switchd crashed unexpectedly
+2026-03-05 18:18:08.000000 labhost-ch3-fm1 inuk.switchd - ERROR - switchd terminated: watchdog timeout
+2026-03-05 18:18:09.000000 labhost-ch3-fm1 inuk.switchd - ERROR - core dump written to /var/crash/switchd.49300.core
+2026-03-05 18:18:10.000000 labhost-ch3-fm1 inuk.switch_manager - INFO - Attempting switchd restart (attempt 1/3)
+2026-03-05 18:18:12.000000 labhost-ch3-fm1 inuk.switchd - ERROR - switchd restart failed (attempt 1/3)
+2026-03-05 18:18:14.000000 labhost-ch3-fm1 inuk.switch_manager - INFO - Attempting switchd restart (attempt 2/3)
+2026-03-05 18:18:16.000000 labhost-ch3-fm1 inuk.switchd - ERROR - switchd restart failed (attempt 2/3)
+2026-03-05 18:18:18.000000 labhost-ch3-fm1 inuk.switch_manager - INFO - Attempting switchd restart (attempt 3/3)
+2026-03-05 18:18:20.000000 labhost-ch3-fm1 inuk.switchd - INFO - switchd pid=49400 started successfully
 
-2026-03-05 18:18:15.000000 labhost-ch3-fm1 inuk.port_manager - ERROR - port Ethernet7 down
-2026-03-05 18:18:17.000000 labhost-ch3-fm1 inuk.port_manager - INFO - port Ethernet7 up
+2026-03-05 18:18:21.000000 labhost-ch3-fm1 inuk.vip_manager - ERROR - VIP creation failed
+2026-03-05 18:18:22.000000 labhost-ch3-fm1 inuk.vip_manager - ERROR - vip error detected: duplicate IP 10.0.3.10
+2026-03-05 18:18:23.000000 labhost-ch3-fm1 inuk.vip_manager - ERROR - VIP conflict with existing host: 10.0.3.10 -> labhost-ch1-fm1
 
-2026-03-05 18:18:20.000000 labhost-ch3-fm1 inuk.array.hw - INFO - switch status change: retry1 -> healthy
+2026-03-05 18:18:24.000000 labhost-ch3-fm1 inuk.port_manager - ERROR - port Ethernet7 down
+2026-03-05 18:18:25.000000 labhost-ch3-fm1 inuk.port_manager - ERROR - port Ethernet7 RX errors: 2048
+2026-03-05 18:18:26.000000 labhost-ch3-fm1 inuk.switch_manager - WARN - Port Ethernet7 link DOWN
+2026-03-05 18:18:27.000000 labhost-ch3-fm1 inuk.switch_manager - INFO - Port Ethernet7 link UP
+2026-03-05 18:18:28.000000 labhost-ch3-fm1 inuk.switch_manager - WARN - Port Ethernet7 link DOWN
+2026-03-05 18:18:29.000000 labhost-ch3-fm1 inuk.switch_manager - INFO - Port Ethernet7 link UP
+2026-03-05 18:18:30.000000 labhost-ch3-fm1 inuk.switch_manager - WARN - Port Ethernet7 link DOWN
 
-2026-03-05 18:18:25.000000 labhost-ch3-fm1 inuk.admin - ERROR - admin network down
+2026-03-05 18:18:31.000000 labhost-ch3-fm1 inuk.array.hw - INFO - switch status change: retry1 -> healthy
+2026-03-05 18:18:32.000000 labhost-ch3-fm1 inuk.array.hw.chassis_ha INFO inuk_iom [25900/MainThread]: process_switch_health, update_switch_status, switch(3) status change: retry2 -> online
+
+2026-03-05 18:18:33.000000 labhost-ch3-fm1 inuk.lacp - INFO - LACP initialized on bond2
+2026-03-05 18:18:34.000000 labhost-ch3-fm1 inuk.lacp - ERROR - LACP negotiation failed on port Ethernet8
+2026-03-05 18:18:35.000000 labhost-ch3-fm1 inuk.lacp - ERROR - LACP down on interface bond2
+2026-03-05 18:18:36.000000 labhost-ch3-fm1 inuk.lacp - INFO - LACP renegotiation successful on bond2
+
+2026-03-05 18:18:37.000000 labhost-ch3-fm1 inuk.admin - ERROR - admin network down
+2026-03-05 18:18:38.000000 labhost-ch3-fm1 inuk.admin - ERROR - SSH management access lost
+2026-03-05 18:18:39.000000 labhost-ch3-fm1 inuk.admin - WARN - Attempting OOB management failover
+
+2026-03-05 18:19:00.000000 labhost-ch4-fm1 inuk.switch_manager - INFO - Initializing fabric manager on chassis 4
+2026-03-05 18:19:01.000000 labhost-ch4-fm1 inuk.switch_manager - INFO - #####Starting switch manager#########
+2026-03-05 18:19:02.000000 labhost-ch4-fm1 inuk.switchd - INFO - switchd started successfully
+2026-03-05 18:19:03.000000 labhost-ch4-fm1 inuk.switchd - INFO - ASIC initialized: BCM56960
+
+2026-03-05 18:19:04.000000 labhost-ch4-fm1 inuk.port_manager - INFO - Port Ethernet1 initialized
+2026-03-05 18:19:05.000000 labhost-ch4-fm1 inuk.port_manager - INFO - Port Ethernet2 initialized
+2026-03-05 18:19:06.000000 labhost-ch4-fm1 inuk.port_manager - INFO - Port Ethernet1 link UP: 100GbE
+2026-03-05 18:19:07.000000 labhost-ch4-fm1 inuk.port_manager - INFO - Port Ethernet2 link UP: 100GbE
+
+2026-03-05 18:19:08.000000 labhost-ch4-fm1 inuk.lacp - INFO - LACP initialized on bond0
+2026-03-05 18:19:09.000000 labhost-ch4-fm1 inuk.lacp - INFO - LACP negotiation successful on bond0
+2026-03-05 18:19:10.000000 labhost-ch4-fm1 inuk.lacp - INFO - bond0 active: 2 member ports
+
+2026-03-05 18:19:11.000000 labhost-ch4-fm1 inuk.cluster - INFO - Joining cluster as standby node
+2026-03-05 18:19:12.000000 labhost-ch4-fm1 inuk.cluster - INFO - Cluster join successful: 5/5 nodes active
+2026-03-05 18:19:13.000000 labhost-ch4-fm1 inuk.cluster - INFO - Syncing state from master: labhost-ch2-fm1
+
+2026-03-05 18:19:14.000000 labhost-ch4-fm1 inuk.vip_manager - INFO - VIP 10.0.4.10 assigned successfully
+2026-03-05 18:19:15.000000 labhost-ch4-fm1 inuk.vip_manager - INFO - VIP 10.0.4.11 assigned successfully
+2026-03-05 18:19:16.000000 labhost-ch4-fm1 inuk.vip_manager - INFO - VIP 10.0.4.12 assigned successfully
+
+2026-03-05 18:19:17.000000 labhost-ch4-fm1 inuk.array.hw - INFO - switch(4) health check OK
+2026-03-05 18:19:18.000000 labhost-ch4-fm1 inuk.array.hw - INFO - switch(4) temperature: 58C (normal)
+2026-03-05 18:19:19.000000 labhost-ch4-fm1 inuk.array.hw - INFO - switch(4) fan speed: 4200 RPM (normal)
+
+2026-03-05 18:19:20.000000 labhost-ch4-fm1 inuk.switch_manager - WARN - Port Ethernet3 link DOWN
+2026-03-05 18:19:21.000000 labhost-ch4-fm1 inuk.port_manager - ERROR - port Ethernet3 error: SFP not present
+2026-03-05 18:19:22.000000 labhost-ch4-fm1 inuk.switch_manager - WARN - Port Ethernet4 link DOWN
+2026-03-05 18:19:23.000000 labhost-ch4-fm1 inuk.port_manager - ERROR - port Ethernet4 error: optical power low
+2026-03-05 18:19:24.000000 labhost-ch4-fm1 inuk.switch_manager - INFO - Port Ethernet4 link UP
+
+2026-03-05 18:19:25.000000 labhost-ch4-fm1 inuk.switchd - WARN - Memory usage high: 88%
+2026-03-05 18:19:26.000000 labhost-ch4-fm1 inuk.switchd - ERROR - TCAM table overflow: policy install failed
+2026-03-05 18:19:27.000000 labhost-ch4-fm1 inuk.switchd - ERROR - switchd crashed unexpectedly
+2026-03-05 18:19:28.000000 labhost-ch4-fm1 inuk.switchd - ERROR - switchd process terminated: out of memory
+2026-03-05 18:19:29.000000 labhost-ch4-fm1 inuk.switchd - ERROR - core dump written to /var/crash/switchd.49500.core
+2026-03-05 18:19:31.000000 labhost-ch4-fm1 inuk.switchd - INFO - switchd pid=49600 started successfully after OOM recovery
+
+2026-03-05 18:19:32.000000 labhost-ch4-fm1 inuk.admin - INFO - Admin interface initialized successfully
+2026-03-05 18:19:33.000000 labhost-ch4-fm1 inuk.admin - INFO - SNMP trap sent to 10.0.0.1: switchd_restart
+
+2026-03-05 18:20:00.000000 labhost-ch5-fm1 inuk.switch_manager - INFO - Initializing fabric manager on chassis 5
+2026-03-05 18:20:01.000000 labhost-ch5-fm1 inuk.switch_manager - INFO - #####Starting switch manager#########
+2026-03-05 18:20:02.000000 labhost-ch5-fm1 inuk.switchd - INFO - switchd started successfully
+2026-03-05 18:20:03.000000 labhost-ch5-fm1 inuk.switchd - INFO - ASIC initialized: BCM56960
+
+2026-03-05 18:20:04.000000 labhost-ch5-fm1 inuk.port_manager - INFO - Port Ethernet1 link UP: 100GbE
+2026-03-05 18:20:05.000000 labhost-ch5-fm1 inuk.port_manager - INFO - Port Ethernet2 link UP: 100GbE
+2026-03-05 18:20:06.000000 labhost-ch5-fm1 inuk.port_manager - INFO - Port Ethernet3 link UP: 25GbE
+2026-03-05 18:20:07.000000 labhost-ch5-fm1 inuk.port_manager - INFO - Port Ethernet4 link UP: 25GbE
+
+2026-03-05 18:20:08.000000 labhost-ch5-fm1 inuk.lacp - INFO - LACP negotiation successful on bond0
+2026-03-05 18:20:09.000000 labhost-ch5-fm1 inuk.lacp - INFO - LACP negotiation successful on bond1
+2026-03-05 18:20:10.000000 labhost-ch5-fm1 inuk.cluster - INFO - Joining cluster: 5/5 nodes active
+
+2026-03-05 18:20:11.000000 labhost-ch5-fm1 inuk.array.hw - INFO - switch(5) health check OK
+2026-03-05 18:20:12.000000 labhost-ch5-fm1 inuk.array.hw - INFO - switch(5) temperature: 55C (normal)
+
+2026-03-05 18:20:13.000000 labhost-ch5-fm1 inuk.switch_manager - WARN - Port Ethernet5 link DOWN
+2026-03-05 18:20:14.000000 labhost-ch5-fm1 inuk.switch_manager - INFO - Port Ethernet5 link UP
+2026-03-05 18:20:15.000000 labhost-ch5-fm1 inuk.switch_manager - WARN - Port Ethernet5 link DOWN
+2026-03-05 18:20:16.000000 labhost-ch5-fm1 inuk.switch_manager - INFO - Port Ethernet5 link UP
+2026-03-05 18:20:17.000000 labhost-ch5-fm1 inuk.port_manager - ERROR - port Ethernet5 flapping: 4 transitions in 4s
+
+2026-03-05 18:20:18.000000 labhost-ch5-fm1 inuk.vip_manager - ERROR - VIP creation failed: no route to gateway 10.0.5.1
+2026-03-05 18:20:19.000000 labhost-ch5-fm1 inuk.vip_manager - ERROR - vip error: ARP resolution failed for 10.0.5.1
+2026-03-05 18:20:20.000000 labhost-ch5-fm1 inuk.vip_manager - WARN - VIP 10.0.5.20 marked degraded
+
+2026-03-05 18:20:21.000000 labhost-ch5-fm1 inuk.admin - INFO - Admin interface initialized
+2026-03-05 18:20:22.000000 labhost-ch5-fm1 inuk.admin - INFO - Syslog forwarding active to 10.0.0.5:514
+2026-03-05 18:20:23.000000 labhost-ch5-fm1 inuk.cluster - INFO - All nodes healthy: cluster status GREEN
+
+just another garbage line $$$$@@@@####
+2026-03-05 18:20:24.000000 labhost-ch5-fm1 inuk.array.hw.chassis_ha INFO inuk_iom [26000/MainThread]: process_switch_health, switch(5) status: online
+
+2026-03-05 18:20:25.000000 labhost-ch5-fm1 inuk.switchd - WARN - BGP session flap detected: peer 10.1.0.1
+2026-03-05 18:20:26.000000 labhost-ch5-fm1 inuk.switchd - ERROR - BGP session down: peer 10.1.0.1 (hold timer expired)
+2026-03-05 18:20:27.000000 labhost-ch5-fm1 inuk.switchd - ERROR - BGP routes withdrawn: 256 prefixes removed from FIB
+2026-03-05 18:20:28.000000 labhost-ch5-fm1 inuk.switchd - INFO - BGP session re-established: peer 10.1.0.1
+2026-03-05 18:20:29.000000 labhost-ch5-fm1 inuk.switchd - INFO - BGP routes restored: 256 prefixes re-installed
+
+2026-03-05 18:20:30.000000 labhost-ch5-fm1 inuk.port_manager - ERROR - port Ethernet6 down: hardware fault
+2026-03-05 18:20:31.000000 labhost-ch5-fm1 inuk.port_manager - ERROR - port Ethernet6 PHY error: loss of signal
+2026-03-05 18:20:32.000000 labhost-ch5-fm1 inuk.port_manager - WARN - Port Ethernet6 disabled pending hardware inspection
+
+2026-03-05 18:20:33.000000 labhost-ch5-fm1 inuk.switchd - ERROR - switchd crashed unexpectedly
+2026-03-05 18:20:34.000000 labhost-ch5-fm1 inuk.switchd - ERROR - switchd terminated: SIGABRT
+2026-03-05 18:20:35.000000 labhost-ch5-fm1 inuk.switch_manager - WARN - switchd watchdog triggered
+2026-03-05 18:20:37.000000 labhost-ch5-fm1 inuk.switchd - INFO - switchd pid=49700 started successfully
+2026-03-05 18:20:38.000000 labhost-ch5-fm1 inuk.switchd - INFO - Post-crash recovery complete
+
+2026-03-05 18:20:39.000000 labhost-ch5-fm1 inuk.admin - ERROR - admin network down: all interfaces unreachable
+2026-03-05 18:20:40.000000 labhost-ch5-fm1 inuk.admin - ERROR - Management VLAN unreachable
+2026-03-05 18:20:41.000000 labhost-ch5-fm1 inuk.admin - WARN - Node isolated from management plane
+
+2026-03-05 18:20:42.000000 labhost-ch5-fm1 inuk.cluster - ERROR - Node labhost-ch5-fm1 declared partitioned
+2026-03-05 18:20:43.000000 labhost-ch5-fm1 inuk.cluster - ERROR - Split-brain condition detected: cluster may be inconsistent
+2026-03-05 18:20:44.000000 labhost-ch5-fm1 inuk.cluster - ERROR - Fencing initiated for labhost-ch5-fm1

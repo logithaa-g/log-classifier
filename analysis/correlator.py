@@ -1,3 +1,10 @@
+# ==========================================================
+# Event Correlator
+# Purpose:
+# Groups related log events together to identify the
+# root cause of an incident and reduce alert noise.
+# ==========================================================
+
 from datetime import timedelta
 
 def correlate(events, anomalies, window_seconds=60):

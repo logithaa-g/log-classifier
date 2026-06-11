@@ -1,3 +1,10 @@
+# ==========================================================
+# Incident Narrator
+# Purpose:
+# Converts technical log analysis results into
+# human-readable explanations and summaries.
+# ==========================================================
+
 def generate_narrative(correlations):
     if not correlations:
         return "No major incidents detected."

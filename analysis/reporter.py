@@ -1,3 +1,10 @@
+# ==========================================================
+# Report Generator
+# Purpose:
+# Generates structured text and JSON reports
+# containing analysis results and incident summaries.
+# ==========================================================
+
 def generate_report(events, flaps, anomalies, correlations, narrative):
 
     # Deduplicate correlations by type (keep first occurrence)

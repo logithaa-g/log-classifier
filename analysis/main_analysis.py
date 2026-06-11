@@ -1,3 +1,17 @@
+# ==========================================================
+# Main Analysis Pipeline
+# Purpose:
+# Coordinates the complete analysis workflow:
+# 1. Normalize logs
+# 2. Detect anomalies
+# 3. Detect flapping events
+# 4. Correlate related events
+# 5. Assign severity levels
+# 6. Generate timelines
+# 7. Create human-readable summaries
+# 8. Generate reports
+# ==========================================================
+
 from normalizer import load_and_normalize
 from flap_detector import detect_flaps
 from anomaly_detector import detect_anomalies

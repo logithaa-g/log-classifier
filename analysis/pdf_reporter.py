@@ -1,3 +1,11 @@
+# ==========================================================
+# PDF Report Generator
+# Purpose:
+# Creates professional PDF reports containing
+# incident details, severity information,
+# timelines, and analysis summaries.
+# ==========================================================
+
 from reportlab.platypus import (
     SimpleDocTemplate,
     Paragraph,

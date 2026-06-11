@@ -1,3 +1,11 @@
+# ==========================================================
+# Anomaly Detector
+# Purpose:
+# Identifies unusual or unexpected patterns in network logs.
+# Compares event frequency and behavior against expected
+# thresholds to detect potential incidents or attacks.
+# ==========================================================
+
 def detect_anomalies(counter_data, threshold=500):
     anomalies = []
 

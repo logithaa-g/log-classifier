@@ -1,3 +1,18 @@
+# ==========================================================
+# Main Analysis Pipeline
+# Purpose:
+# Coordinates the complete analysis workflow:
+# 1. Normalize logs
+# 2. Detect anomalies
+# 3. Detect flapping events
+# 4. Correlate related events
+# 5. Assign severity levels
+# 6. Generate timelines
+# 7. Create human-readable summaries
+# 8. Generate reports
+# ==========================================================
+
+
 import argparse
 import json
 import glob
@@ -37,6 +52,8 @@ def main():
 
     parser.add_argument(
         "--categories",
+        "--filter-category",
+        dest="categories",
         help="Filter categories (comma separated)"
     )
 
@@ -181,12 +198,38 @@ def main():
     # Console summary
     # ==========================================
     print("\n===================================")
-    print("Log Classification Complete")
+    print("LOG CLASSIFICATION SUMMARY")
     print("===================================")
 
-    print(f"Files processed: {len(files)}")
-    print(f"Total classified events: {len(results)}")
-    print(f"Report saved to: {args.output}")
+    print(f"Files Processed      : {len(files)}")
+    print(f"Total Events         : {len(results)}")
+
+    critical = len([
+        r for r in results
+        if r.get("severity") == "critical"
+    ])
+
+    error = len([
+        r for r in results
+        if r.get("severity") == "error"
+    ])
+
+    warning = len([
+        r for r in results
+        if r.get("severity") == "warning"
+    ])
+
+    info = len([
+        r for r in results
+        if r.get("severity") == "info"
+    ])
+
+    print(f"Critical Events      : {critical}")
+    print(f"Error Events         : {error}")
+    print(f"Warning Events       : {warning}")
+    print(f"Info Events          : {info}")
+
+    print(f"\nReport Saved To      : {args.output}")
 
 
 if __name__ == "__main__":

@@ -1,3 +1,10 @@
+# ==========================================================
+# Flap Detector
+# Purpose:
+# Detects repeated state changes such as interfaces going
+# UP and DOWN multiple times within a short period.
+# Helps identify unstable network links.
+# ==========================================================
 from collections import defaultdict
 
 def detect_flaps(events, threshold=30):

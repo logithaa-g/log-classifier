@@ -1,3 +1,10 @@
+# ==========================================================
+# Log Normalizer
+# Purpose:
+# Converts logs from different formats into a standard
+# structure for consistent analysis and processing.
+# ==========================================================
+
 import json
 import re
 from datetime import datetime
