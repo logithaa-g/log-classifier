@@ -1,16 +1,21 @@
 from .base import BaseClassifier
-#Virtual IP crea on failed 
-#check for “vip” and either “fail” or “error”.
-class VIPFailureClassifier(BaseClassifier):
+
+class AssertsClassifier(BaseClassifier):
 
     def match(self, event):
         msg = event.message.lower()
 
-        if "vip" in msg and ("fail" in msg or "error" in msg):
+        if (
+            "assert failed" in msg
+            or "assertionerror" in msg
+            or "assertion" in msg
+            or "assert" in msg
+        ):
             return {
-                "category": "VIP Creation Failure",
+                "category": "Assert Failure",
                 "timestamp": event.timestamp,
                 "host": event.host,
                 "details": event.message
             }
+
         return None

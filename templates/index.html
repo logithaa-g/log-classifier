@@ -510,7 +510,7 @@
     <header class="topbar">
         <div class="topbar-left">
             <div class="logo-dot"></div>
-            <div class="logo-text">log<span>.</span>classifier</div>
+            <div class="logo-text"> Log Analyzer</div>
         </div>
         <div class="topbar-right">
             <label class="theme-toggle" title="Toggle theme">
@@ -528,19 +528,36 @@
 
         <!-- HERO -->
         <div class="hero">
-            <div class="hero-eyebrow">// network log analysis</div>
-            <h1>Classify, detect, report.<br>In one pass.</h1>
-            <p>Upload raw network logs or paste them directly. Get a structured breakdown of severity, incidents, and timeline in seconds.</p>
+            <div class="hero-eyebrow">PRODUCT LOG ANALYSIS</div>
+            <h1>Turn product logs into useful insights.</h1>
+            <p>Analyze product logs, detect important events, and generate structured reports without manually reviewing thousands of log entries.</p>
         </div>
 
         <!-- CAPABILITY TAGS -->
         <div class="capability-strip">
-            <div class="cap-tag"><i class="fa-solid fa-circle-dot"></i> Event Classification</div>
-            <div class="cap-tag"><i class="fa-solid fa-triangle-exclamation"></i> Severity Scoring</div>
-            <div class="cap-tag"><i class="fa-solid fa-clock-rotate-left"></i> Timeline Analysis</div>
-            <div class="cap-tag"><i class="fa-solid fa-file-pdf"></i> PDF Export</div>
-            <div class="cap-tag"><i class="fa-solid fa-code"></i> JSON Export</div>
-            <div class="cap-tag"><i class="fa-solid fa-layer-group"></i> Multi-file</div>
+            <div class="cap-tag">
+                <i class="fa-solid fa-circle-dot"></i> Event Classification
+            </div>
+
+            <div class="cap-tag">
+                <i class="fa-solid fa-triangle-exclamation"></i> Severity Classification
+            </div>
+
+            <div class="cap-tag">
+                <i class="fa-solid fa-bug"></i> Incident Detection
+            </div>
+
+            <div class="cap-tag">
+                <i class="fa-solid fa-clock-rotate-left"></i> Timeline Analysis
+            </div>
+
+            <div class="cap-tag">
+                <i class="fa-solid fa-code"></i> JSON Export
+            </div>
+
+            <div class="cap-tag">
+                <i class="fa-solid fa-layer-group"></i> Multi-file Analysis
+            </div>
         </div>
 
         <!-- UPLOAD CARD -->
@@ -579,13 +596,24 @@
                     <!-- TEXTAREA -->
                     <div class="textarea-wrap">
                         <label>RAW LOG INPUT</label>
-                        <textarea name="logtext" rows="9" placeholder="2024-01-15 03:42:11 [CRITICAL] switchd: daemon crash on eth0&#10;2024-01-15 03:42:14 [ERROR] port-error: congestion on swp1&#10;..."></textarea>
+                        <textarea name="logtext" rows="9" placeholder="Jun 11 10:15:32 INFO RPC call completed successfully
+                            Jun 11 10:15:45 WARNING Request timeout while connecting to service
+                            Jun 11 10:16:01 ERROR Process switchd crashed unexpectedly
+                            Jun 11 10:16:10 ERROR ASSERT failure detected in module auth
+                            Jun 11 10:16:22 INFO Process restarted successfully
+                            Jun 11 10:16:40 ERROR JSON request timeout
+                            Jun 11 10:17:05 CRITICAL SIGABRT received by process daemon">
+                        </textarea>
                     </div>
 
                     <!-- INFO BANNER -->
                     <div class="info-banner">
                         <i class="fa-solid fa-circle-info"></i>
-                        <p>Generates <strong>log classification, severity report, timeline analysis, incident summary, PDF report,</strong> and <strong>JSON export</strong> automatically.</p>
+                        <p>
+                            Automatically analyzes logs to identify patterns, classify events,
+                            generate incident summaries, visualize timelines, and provide
+                            operational insights.
+                        </p>
                     </div>
 
                     <!-- SUBMIT -->

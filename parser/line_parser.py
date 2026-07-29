@@ -11,11 +11,21 @@ class LineParsedEvent:
 
 
 def parse_line(line: str):
-    # Pattern 1: with log level
-    pattern1 = r"^(\d{4}-\d{2}-\d{2} \S+) (\S+) (\S+).*?(INFO|ERROR|WARN|DEBUG).*?:?\s(.*)$"
+    # Stripping trailing/leading whitespaces for safety
+    line = line.strip()
+
+    # Replaced both old patterns with the new unified layout pattern
+    pattern1 = (
+        r"^(\d{4}-\d{2}-\d{2} \S+)\s+"
+        r"(\S+)\s+"
+        r"(\S+)\s+-\s+"
+        r"(INFO|ERROR|WARN|DEBUG)\s+-\s+"
+        r"(.*)$"
+    )
 
     match = re.match(pattern1, line)
     if match:
+        print("MATCHED:", line)
         return LineParsedEvent(
             timestamp=match.group(1),
             host=match.group(2),
@@ -24,20 +34,8 @@ def parse_line(line: str):
             message=match.group(5)
         )
 
-    # Pattern 2: Handles logs that don’t contain a log level but still follow a basic structure
-    pattern2 = r"^(\d{4}-\d{2}-\d{2} \S+) (\S+) (\S+): (.*)$"
-
-    match = re.match(pattern2, line)
-    if match:
-        return LineParsedEvent(
-            timestamp=match.group(1),
-            host=match.group(2),
-            source=match.group(3),
-            level="UNKNOWN",  # no level present
-            message=match.group(4)
-        )
-
-    # fallback (completely unknown)
+    # Fallback (completely unparseable line)
+    print("FAILED:", line)
     return LineParsedEvent(
         timestamp="UNKNOWN",
         host="UNKNOWN",

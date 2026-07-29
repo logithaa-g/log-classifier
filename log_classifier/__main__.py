@@ -21,13 +21,15 @@ from parser.decompressor import read_log_lines
 from parser.line_parser import parse_line
 
 # import all classifiers
-from classifiers.switchd_crash import SwitchDCrashClassifier
-from classifiers.vip_failure import VIPFailureClassifier
+from classifiers.process_crash import ProcessCrashClassifier
+from classifiers.process_initialization import ProcessInitializationClassifier
+from classifiers.asserts import AssertsClassifier
+from classifiers.timeouts import TimeoutsClassifier
+from classifiers.sigabort import SigAbortClassifier
+from classifiers.stacktrace import StacktraceClassifier
 from classifiers.port_errors import PortErrorClassifier
-from classifiers.switch_init import SwitchInitClassifier
 from classifiers.switch_health import SwitchHealthClassifier
 from classifiers.lacp import LACPClassifier
-from classifiers.mastership import MastershipClassifier
 from classifiers.admin_net import AdminNetClassifier
 from classifiers.link_flap import LinkFlapClassifier
 
@@ -74,13 +76,15 @@ def main():
     # Initialize classifiers
     # ==========================================
     classifiers = [
-        SwitchDCrashClassifier(),
-        VIPFailureClassifier(),
+        ProcessCrashClassifier(),
+        ProcessInitializationClassifier(),
+        AssertsClassifier(),
+        TimeoutsClassifier(),
+        SigAbortClassifier(),
+        StacktraceClassifier(),
         PortErrorClassifier(),
-        SwitchInitClassifier(),
         SwitchHealthClassifier(),
         LACPClassifier(),
-        MastershipClassifier(),
         AdminNetClassifier(),
         LinkFlapClassifier()
     ]
@@ -119,8 +123,10 @@ def main():
                     if "severity" not in result:
 
                         if result["category"] in [
-                            "SwitchD Crash",
-                            "VIP Failure"
+                            "Process Crash",
+                            "Assert Failure",
+                            "SIGABRT Events",
+                            "Stacktrace Events"
                         ]:
                             result["severity"] = "critical"
 
@@ -131,8 +137,8 @@ def main():
                             result["severity"] = "error"
 
                         elif result["category"] in [
-                            "Mastership",
-                            "Switch Health"
+                            "Switch Health",
+                            "Timeout"
                         ]:
                             result["severity"] = "warning"
 

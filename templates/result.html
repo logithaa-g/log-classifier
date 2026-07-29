@@ -211,9 +211,9 @@
         }
 
         .status-wrap.critical { background: var(--danger-dim); border-color: var(--danger); color: var(--danger); }
-        .status-wrap.error { background: var(--orange-dim); border-color: var(--orange); color: var(--orange); }
-        .status-wrap.warning { background: var(--warning-dim); border-color: var(--warning); color: var(--warning); }
-        .status-wrap.info { background: var(--info-dim); border-color: var(--info); color: var(--info); }
+        .status-wrap.error    { background: var(--orange-dim); border-color: var(--orange); color: var(--orange); }
+        .status-wrap.warning  { background: var(--warning-dim); border-color: var(--warning); color: var(--warning); }
+        .status-wrap.info     { background: var(--info-dim); border-color: var(--info); color: var(--info); }
 
         /* ── SECTION TITLE ── */
         .section-title {
@@ -270,10 +270,10 @@
         }
 
         .stat-card.v-critical .stat-value { color: var(--danger); }
-        .stat-card.v-error .stat-value { color: var(--orange); }
-        .stat-card.v-warning .stat-value { color: var(--warning); }
-        .stat-card.v-info .stat-value { color: var(--info); }
-        .stat-card.v-neutral .stat-value { color: var(--text-primary); }
+        .stat-card.v-error    .stat-value { color: var(--orange); }
+        .stat-card.v-warning  .stat-value { color: var(--warning); }
+        .stat-card.v-info     .stat-value { color: var(--info); }
+        .stat-card.v-neutral  .stat-value { color: var(--text-primary); }
 
         /* ── CARD ── */
         .card {
@@ -334,9 +334,7 @@
             .donut-layout { grid-template-columns: 1fr; }
         }
 
-        .donut-wrap {
-            position: relative;
-        }
+        .donut-wrap { position: relative; }
 
         .donut-center {
             position: absolute;
@@ -362,24 +360,9 @@
             letter-spacing: 0.08em;
         }
 
-        /* Severity legend rows */
-        .sev-legend {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .sev-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .sev-dot {
-            width: 10px; height: 10px;
-            border-radius: 3px;
-            flex-shrink: 0;
-        }
+        .sev-legend { display: flex; flex-direction: column; gap: 14px; }
+        .sev-row { display: flex; align-items: center; gap: 12px; }
+        .sev-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
 
         .sev-name {
             font-family: 'JetBrains Mono', monospace;
@@ -404,27 +387,12 @@
             overflow: hidden;
         }
 
-        .sev-bar {
-            height: 100%;
-            border-radius: 2px;
-            transition: width 0.6s ease;
-        }
-
-        .sev-row-inner {
-            flex: 1;
-        }
-
-        .sev-row-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+        .sev-bar { height: 100%; border-radius: 2px; transition: width 0.6s ease; }
+        .sev-row-inner { flex: 1; }
+        .sev-row-top { display: flex; align-items: center; justify-content: space-between; }
 
         /* ── TIMELINE CHART ── */
-        .timeline-wrap {
-            height: 320px;
-            position: relative;
-        }
+        .timeline-wrap { height: 320px; position: relative; }
 
         /* ── EVENT DETAIL PANEL ── */
         .event-detail-panel {
@@ -450,15 +418,9 @@
         }
 
         .event-detail-panel .field { color: var(--accent); margin-right: 8px; }
-
         .detail-entry { display: flex; }
 
-        /* Colored points legend for timeline */
-        .timeline-legend {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+        .timeline-legend { display: flex; gap: 20px; flex-wrap: wrap; }
 
         .tl-leg-item {
             display: flex;
@@ -469,9 +431,94 @@
             color: var(--text-secondary);
         }
 
-        .tl-leg-dot {
-            width: 8px; height: 8px;
-            border-radius: 50%;
+        .tl-leg-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+        /* ── INCIDENT SUMMARY CARD ── */
+        .incident-summary-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .incident-summary-rows {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-bottom: 20px;
+        }
+
+        .incident-summary-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 11px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .incident-summary-row:last-child { border-bottom: none; }
+
+        .incident-summary-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .incident-summary-label i { font-size: 10px; }
+
+        .incident-summary-count {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 2px 10px;
+        }
+
+        /* ── TOGGLE BUTTON ── */
+        .btn-toggle-incidents {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 18px;
+            background: var(--accent-dim);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            color: var(--accent);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        .btn-toggle-incidents:hover { background: var(--accent-glow); }
+
+        .toggle-chevron {
+            transition: transform 0.25s ease;
+            font-size: 10px;
+        }
+
+        .toggle-chevron.open { transform: rotate(180deg); }
+
+        /* ── COLLAPSIBLE INCIDENTS ── */
+        .incidents-collapsible {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.35s ease, opacity 0.25s ease;
+            opacity: 0;
+        }
+
+        .incidents-collapsible.open {
+            max-height: 2000px;
+            opacity: 1;
         }
 
         /* ── INCIDENT LIST ── */
@@ -494,10 +541,7 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        .incident-desc {
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
+        .incident-desc { font-size: 12px; color: var(--text-secondary); }
 
         /* ── BADGES ── */
         .badge {
@@ -511,10 +555,10 @@
             flex-shrink: 0;
         }
 
-        .badge-critical { background: var(--danger-dim); color: var(--danger); border: 1px solid var(--danger); }
-        .badge-error { background: var(--orange-dim); color: var(--orange); border: 1px solid var(--orange); }
-        .badge-warning { background: var(--warning-dim); color: var(--warning); border: 1px solid var(--warning); }
-        .badge-info { background: var(--info-dim); color: var(--info); border: 1px solid var(--info); }
+        .badge-critical { background: var(--danger-dim);  color: var(--danger);  border: 1px solid var(--danger); }
+        .badge-error    { background: var(--orange-dim);  color: var(--orange);  border: 1px solid var(--orange); }
+        .badge-warning  { background: var(--warning-dim); color: var(--warning); border: 1px solid var(--warning); }
+        .badge-info     { background: var(--info-dim);    color: var(--info);    border: 1px solid var(--info); }
 
         /* ── NARRATIVE ── */
         .narrative-item {
@@ -538,10 +582,7 @@
         }
 
         /* ── SEARCH ── */
-        .search-wrap {
-            margin-bottom: 20px;
-            position: relative;
-        }
+        .search-wrap { margin-bottom: 20px; position: relative; }
 
         .search-wrap i {
             position: absolute;
@@ -576,10 +617,7 @@
             margin-bottom: 20px;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+        table { width: 100%; border-collapse: collapse; }
 
         thead th {
             background: var(--table-header);
@@ -612,16 +650,8 @@
             white-space: nowrap;
         }
 
-        td.category {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-        }
-
-        td.details {
-            font-size: 12px;
-            color: var(--text-secondary);
-            max-width: 320px;
-        }
+        td.category { font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+        td.details { font-size: 12px; color: var(--text-secondary); max-width: 320px; }
 
         /* ── CATEGORY SUMMARY ── */
         .cat-row {
@@ -633,11 +663,7 @@
         }
 
         .cat-row:last-child { border-bottom: none; }
-
-        .cat-name {
-            font-size: 13px;
-            color: var(--text-primary);
-        }
+        .cat-name { font-size: 13px; color: var(--text-primary); }
 
         .cat-count {
             font-family: 'JetBrains Mono', monospace;
@@ -707,7 +733,7 @@
         <!-- PAGE HEADER + STATUS -->
         <div class="page-header">
             <div>
-                <div class="page-eyebrow">// analysis complete</div>
+                <div class="page-eyebrow">ANALYSIS COMPLETED</div>
                 <h1>Log Analysis Results</h1>
             </div>
             <div class="status-wrap {{ overall_severity | lower }}" id="statusBadge">
@@ -741,24 +767,61 @@
             </div>
         </div>
 
-        <!-- INCIDENT SUMMARY -->
+        <!-- INCIDENT SUMMARY (doc1 style: labelled rows + collapsible details) -->
         <div class="section-title">Incident Summary</div>
-        <div class="stat-grid" style="margin-bottom:36px;">
-            <div class="stat-card v-neutral">
-                <div class="stat-value">{{ flaps }}</div>
-                <div class="stat-label">Link Flaps</div>
+
+        <div class="stat-grid">
+            <div class="stat-card v-critical">
+                <div class="stat-value">{{ asserts_count }}</div>
+                <div class="stat-label">ASSERT Failures</div>
             </div>
-            <div class="stat-card v-neutral">
-                <div class="stat-value">{{ anomalies }}</div>
-                <div class="stat-label">Anomalies</div>
+
+            <div class="stat-card v-error">
+                <div class="stat-value">{{ sigabort_count }}</div>
+                <div class="stat-label">SIGABRT Events</div>
             </div>
-            <div class="stat-card v-neutral">
-                <div class="stat-value">{{ correlations }}</div>
-                <div class="stat-label">Correlations</div>
+
+            <div class="stat-card v-warning">
+                <div class="stat-value">{{ timeouts_count }}</div>
+                <div class="stat-label">Timeout Events</div>
+            </div>
+
+            <div class="stat-card v-info">
+                <div class="stat-value">{{ stacktrace_count }}</div>
+                <div class="stat-label">Stacktrace Events</div>
             </div>
         </div>
 
-        <!-- CHARTS -->
+        {% if incidents %}
+        <div style="text-align:center; margin-top:16px;">
+            <button class="btn-toggle-incidents" id="toggleIncidentsBtn" onclick="toggleIncidents()">
+                <i class="fa-solid fa-chevron-down toggle-chevron" id="toggleChevron"></i>
+                <span id="toggleBtnLabel">View Incident Details</span>
+            </button>
+        </div>
+        {% endif %}
+
+        <!-- COLLAPSIBLE DETECTED INCIDENTS -->
+        {% if incidents %}
+        <div class="incidents-collapsible" id="incidentDetails">
+            <div class="section-title">Detected Incidents</div>
+            <div class="card">
+                <div class="card-body" style="padding: 0 24px;">
+                    {% for incident in incidents %}
+                    <div class="incident-item">
+                        <div>
+                            <div class="incident-type">{{ incident.type }}</div>
+                            <div class="incident-desc">{{ incident.description }}</div>
+                        </div>
+                        <span class="badge badge-{{ incident.severity | lower }}">{{ incident.severity | upper }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- CHARTS (doc2 JS, both donut + timeline) -->
         {% if critical_count + error_count + warning_count + info_count > 0 or timeline_labels %}
         <div class="section-title">Visual Analysis</div>
         <div class="charts-section">
@@ -862,24 +925,6 @@
         </div>
         {% endif %}
 
-        <!-- DETECTED INCIDENTS -->
-        {% if incidents %}
-        <div class="section-title">Detected Incidents</div>
-        <div class="card">
-            <div class="card-body" style="padding: 0 24px;">
-                {% for incident in incidents %}
-                <div class="incident-item">
-                    <div>
-                        <div class="incident-type">{{ incident.type }}</div>
-                        <div class="incident-desc">{{ incident.description }}</div>
-                    </div>
-                    <span class="badge badge-{{ incident.severity | lower }}">{{ incident.severity | upper }}</span>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-        {% endif %}
-
         <!-- NARRATIVES -->
         {% if narratives %}
         <div class="section-title">Incident Narrative</div>
@@ -944,42 +989,48 @@
         </div>
 
         <a href="/" class="btn-back">
-            <i class="fa-solid fa-arrow-left"></i>
-            Analyze Another Log
+            <i class="fa-solid fa-arrow-left"></i> New Analysis
         </a>
 
         <div class="page-footer">
-            log pattern classifier &nbsp;·&nbsp; built by <span>Logithaa G</span>
+            log<span>.</span>classifier &mdash; analysis complete
         </div>
 
-    </div>
+    </div><!-- /.page -->
 
     <script>
         const eventData = {{ results | tojson }};
 
-        // ── THEME ──
+        /* ── THEME ── */
         function toggleTheme() {
             const html = document.documentElement;
-            const icon = document.getElementById('themeIconInner');
-            if (html.getAttribute('data-theme') === 'dark') {
-                html.setAttribute('data-theme', 'light');
-                icon.className = 'fa-solid fa-sun';
-                localStorage.setItem('theme', 'light');
-            } else {
-                html.setAttribute('data-theme', 'dark');
-                icon.className = 'fa-solid fa-moon';
-                localStorage.setItem('theme', 'dark');
-            }
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            document.getElementById('themeIconInner').className = isDark
+                ? 'fa-solid fa-sun'
+                : 'fa-solid fa-moon';
+            localStorage.setItem('theme', isDark ? 'light' : 'dark');
         }
 
-        const saved = localStorage.getItem('theme');
-        if (saved === 'light') {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
             document.documentElement.setAttribute('data-theme', 'light');
             document.getElementById('themeCheckbox').checked = true;
             document.getElementById('themeIconInner').className = 'fa-solid fa-sun';
         }
 
-        // ── SEARCH ──
+        /* ── INCIDENT DETAILS TOGGLE ── */
+        function toggleIncidents() {
+            const panel   = document.getElementById('incidentDetails');
+            const chevron = document.getElementById('toggleChevron');
+            const label   = document.getElementById('toggleBtnLabel');
+            const opening = !panel.classList.contains('open');
+            panel.classList.toggle('open', opening);
+            chevron.classList.toggle('open', opening);
+            label.textContent = opening ? 'Hide Details' : 'Show Details';
+        }
+
+        /* ── SEARCH FILTER ── */
         document.getElementById('searchInput').addEventListener('keyup', function () {
             const filter = this.value.toLowerCase();
             document.querySelectorAll('#eventsTable tbody tr').forEach(row => {
@@ -987,7 +1038,7 @@
             });
         });
 
-        // ── SEVERITY CHART ──
+        /* ── SEVERITY DONUT CHART ── */
         const sevCtx = document.getElementById('severityChart');
         if (sevCtx) {
             new Chart(sevCtx, {
@@ -1025,13 +1076,12 @@
             });
         }
 
-        // ── TIMELINE CHART ──
+        /* ── TIMELINE CHART ── */
         const tlCtx = document.getElementById('timelineChart');
         if (tlCtx) {
             const tlLabels = {{ timeline_labels | tojson }};
             const tlValues = {{ timeline_values | tojson }};
 
-            // Color each point by severity level
             const SCOLOR = { 4: '#ef4444', 3: '#f97316', 2: '#f59e0b', 1: '#3b82f6' };
             const pointColors = tlValues.map(v => SCOLOR[v] || '#64748b');
 
@@ -1066,7 +1116,7 @@
                                 panel.className = 'event-detail-panel';
                                 panel.innerHTML =
                                     `<div class="detail-entry"><span class="field">timestamp</span>${e.timestamp}</div>` +
-                                    `<div class="detail-entry"><span class="field">severity &nbsp;</span>${e.severity?.toUpperCase()}</div>` +
+                                    `<div class="detail-entry"><span class="field">severity &nbsp;</span>${(e.severity || '').toUpperCase()}</div>` +
                                     `<div class="detail-entry"><span class="field">category &nbsp;</span>${e.category}</div>` +
                                     `<div class="detail-entry"><span class="field">details &nbsp;&nbsp;</span>${e.details || '—'}</div>`;
                             }
@@ -1108,7 +1158,12 @@
                             },
                             grid: {
                                 color: ctx => {
-                                    const colors = { 1: 'rgba(59,130,246,0.08)', 2: 'rgba(245,158,11,0.08)', 3: 'rgba(249,115,22,0.08)', 4: 'rgba(239,68,68,0.08)' };
+                                    const colors = {
+                                        1: 'rgba(59,130,246,0.08)',
+                                        2: 'rgba(245,158,11,0.08)',
+                                        3: 'rgba(249,115,22,0.08)',
+                                        4: 'rgba(239,68,68,0.08)'
+                                    };
                                     return colors[ctx.tick.value] || 'transparent';
                                 },
                                 lineWidth: 1

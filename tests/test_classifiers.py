@@ -1,6 +1,6 @@
 from parser.line_parser import parse_line
 
-from classifiers.switchd_crash import SwitchDCrashClassifier
+from classifiers.process_crash import SwitchDCrashClassifier
 from classifiers.vip_failure import VIPFailureClassifier
 from classifiers.port_errors import PortErrorClassifier
 from classifiers.switch_init import SwitchInitClassifier

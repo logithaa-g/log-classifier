@@ -1,376 +1,458 @@
 # Log Pattern Classifier
 
-## Overview
+A high-performance Python-based log analysis tool that parses FlashBlade system logs, classifies incidents into predefined categories, detects anomalies, correlates related events, and generates actionable incident reports.
 
-Log Pattern Classifier is a Python-based log analysis system designed to process network switch logs, classify operational events, detect abnormal behavior, correlate related failures, and generate structured reports.
-
-The project simulates a lightweight monitoring and troubleshooting pipeline similar to systems used in production networking environments. It supports parsing compressed and uncompressed logs, event classification, anomaly detection, event correlation, and incident reporting.
-
-The system is modular and extensible, allowing additional classifiers and analysis modules to be integrated easily.
+Designed as part of the **Pure Storage Empower Me Mentorship Program**, the project processes compressed log files efficiently using a single-pass pipeline and produces structured JSON reports along with human-readable incident summaries.
 
 ---
 
-# Objectives
+## Features
 
-The project was built with the following objectives:
+### Log Parsing
+- Supports compressed `.zst` FlashBlade log files
+- Extracts
+  - Timestamp
+  - Host
+  - Source
+  - Log Level
+  - Message
+- Robust regex-based parser
+- Handles malformed log entries gracefully
 
-- Parse raw switch logs into structured events
-- Detect important operational failures
-- Identify unstable links and recurring issues
-- Correlate multiple events to identify root causes
-- Generate machine-readable and human-readable reports
-- Support multi-file log analysis
+### Incident Classification
 
----
+Automatically classifies logs into the following categories:
 
-# Features
-
-## Log Parsing
-- Supports `.log` and `.zst` files
-- Parses timestamps, hostnames, and message content
-- Multi-file aggregation support
-
-## Event Classification
-Supported classifiers include:
-
-- SwitchD Crash
-- VIP Failure
-- Port Errors
-- Link Flaps
-- LACP Failures
-- Mastership Events
-- Switch Initialization
-- Switch Health Events
-- Admin Network Failures
-
-## Analysis Engine
-The analysis layer performs:
-
-- Flap Detection
-- Counter Anomaly Detection
-- Event Correlation
-- Severity Assignment
-- Incident Narrative Generation
-
-## Reporting
-- JSON report generation
-- Colored terminal summaries
-- Severity filtering
-- Category filtering
+| Category | Description |
+|-----------|-------------|
+| Process Initialization | Detects startup and initialization events |
+| Process Crash | Detects unexpected process termination |
+| Admin Network Issue | Network connectivity/configuration issues |
+| Timeout | RPC, Request and operation timeout events |
+| Port Error | Port failures and hardware interface errors |
+| Link Flap | Link up/down oscillations |
+| Switch Health Transition | Switch health state changes |
+| Assert Failure | Assertion failures |
+| SIGABRT Events | SIGABRT crashes |
+| Stacktrace Events | Stack traces indicating software failures |
 
 ---
 
-# System Architecture
+## Event Severity
 
-```text
-                    +-------------------+
-                    |   Raw Log Files   |
-                    | (.log / .zst)     |
-                    +---------+---------+
-                              |
-                              v
-                    +-------------------+
-                    |   Decompressor    |
-                    +---------+---------+
-                              |
-                              v
-                    +-------------------+
-                    |    Line Parser    |
-                    +---------+---------+
-                              |
-                              v
-                    +-------------------+
-                    |    Classifiers    |
-                    |-------------------|
-                    | SwitchD Crash     |
-                    | VIP Failure       |
-                    | Port Errors       |
-                    | LACP              |
-                    | Mastership        |
-                    | Link Flaps        |
-                    | Switch Health     |
-                    | Admin Network     |
-                    +---------+---------+
-                              |
-                              v
-                    +-------------------+
-                    | Normalized Events |
-                    +---------+---------+
-                              |
-                              v
-                    +-------------------+
-                    | Analysis Engine   |
-                    |-------------------|
-                    | Flap Detection    |
-                    | Anomaly Detection |
-                    | Correlation       |
-                    | Severity Mapping  |
-                    +---------+---------+
-                              |
-                              v
-                    +-------------------+
-                    | Incident Reporter |
-                    +---------+---------+
-                              |
-                              v
-                    +-------------------+
-                    | report.json       |
-                    +-------------------+
+The tool categorizes events into four severity levels.
+
+### Critical
+- Assert Failure
+- SIGABRT Events
+- Stacktrace Events
+
+### Error
+- Process Crash
+- Port Error
+- Admin Network Issue
+
+### Warning
+- Timeout
+- Link Flap
+- Switch Health Transition
+
+### Info
+- Process Initialization
+
+---
+
+# Project Architecture
+
+```
+               FlashBlade Logs (.zst)
+                        │
+                        ▼
+                Decompression Module
+                        │
+                        ▼
+                  Log Line Parser
+                        │
+                        ▼
+            Single Pass Classification Engine
+                        │
+                        ▼
+      ┌──────────────────────────────────┐
+      │ Classifier Pipeline              │
+      │                                  │
+      │ Process Initialization           │
+      │ Process Crash                    │
+      │ Admin Network Issue              │
+      │ Timeout                          │
+      │ Port Error                       │
+      │ Link Flap                        │
+      │ Switch Health Transition         │
+      │ Assert Failure                   │
+      │ SIGABRT Events                   │
+      │ Stacktrace Events                │
+      └──────────────────────────────────┘
+                        │
+                        ▼
+               Analysis Pipeline
+                        │
+      ┌─────────────────┼─────────────────┐
+      ▼                 ▼                 ▼
+Flap Detector   Anomaly Detector   Event Correlator
+      │                 │                 │
+      └─────────────────┼─────────────────┘
+                        ▼
+               Incident Narrator
+                        │
+                        ▼
+                 Report Generator
+                        │
+                        ▼
+          JSON Reports + Dashboard Output
 ```
 
 ---
 
 # Project Structure
 
-```text
-log_pattern_classifier/
+```
+log-classifier/
 │
-├── analysis/
-│   ├── anomaly_detector.py
-│   ├── correlator.py
-│   ├── flap_detector.py
-│   ├── main_analysis.py
-│   ├── narrator.py
-│   ├── normalizer.py
-│   ├── reporter.py
-│   └── severity.py
-│
-├── classifiers/
-│   ├── admin_net.py
-│   ├── base.py
-│   ├── lacp.py
-│   ├── link_flap.py
-│   ├── mastership.py
-│   ├── port_errors.py
-│   ├── switch_health.py
-│   ├── switch_init.py
-│   ├── switchd_crash.py
-│   └── vip_failure.py
-│
-├── parser/
-│   ├── decompressor.py
-│   └── line_parser.py
-│
-├── tests/
-│   ├── test_classifiers.py
-│   └── test_parser.py
-│
-├── __main__.py
-├── compress.py
+├── app.py
+├── requirements.txt
 ├── README.md
-└── .gitignore
+│
+├── log_classifier/
+│   ├── parser/
+│   │   └── line_parser.py
+│   │
+│   ├── classifiers/
+│   │   ├── process_initialization.py
+│   │   ├── process_crash.py
+│   │   ├── admin_network_issue.py
+│   │   ├── timeout.py
+│   │   ├── port_error.py
+│   │   ├── link_flap.py
+│   │   ├── switch_health_transition.py
+│   │   ├── assert_failure.py
+│   │   ├── sigabrt.py
+│   │   └── stacktrace.py
+│   │
+│   ├── analysis/
+│   │   ├── flap_detector.py
+│   │   ├── anomaly_detector.py
+│   │   ├── correlator.py
+│   │   ├── narrator.py
+│   │   └── reporter.py
+│   │
+│   └── main.py
+│
+├── templates/
+│   ├── index.html
+│   └── results.html
+│
+├── static/
+│
+├── Tests/
+│
+└── sample_logs/
 ```
 
 ---
 
-# Processing Pipeline
+# Technologies Used
 
-The system follows a multi-stage pipeline for processing logs.
+### Programming Language
 
-## Phase 1: Parsing
+- Python 3.10+
 
-Raw log files are read line-by-line and converted into structured event dictionaries.
+### Libraries
 
-Example log:
+- zstandard
+- re
+- json
+- collections
+- argparse
+- Flask
+- Bootstrap 5
+- Chart.js
 
-```text
-2026-03-05 18:16:10 Port Ethernet1 link DOWN
-```
+### Deployment
 
-Structured event:
-
-```json
-{
-    "timestamp": "2026-03-05 18:16:10",
-    "message": "Port Ethernet1 link DOWN"
-}
-```
-
----
-
-## Phase 2: Classification
-
-Each parsed event is passed through multiple classifiers.
-
-The classifiers determine:
-- Event category
-- Severity
-- Port information
-- Failure type
-
-Example classified event:
-
-```json
-{
-    "category": "Port Error",
-    "severity": "error"
-}
-```
-
----
-
-## Phase 3: Analysis
-
-The analysis engine processes classified events and detects patterns.
-
-### Flap Detection
-Detects rapid DOWN → UP transitions on interfaces.
-
-### Anomaly Detection
-Detects sudden spikes in counter values.
-
-### Correlation Engine
-Combines related events occurring within a time window.
-
-Example:
-- Port Error
-- Link DOWN
-- Restart Event
-
-These are combined into a single correlated incident.
-
-### Narrative Generation
-Converts incidents into human-readable summaries.
-
----
-
-## Phase 4: Reporting
-
-The reporting layer generates:
-- JSON reports
-- Console summaries
-- Severity-filtered outputs
-- Category-filtered outputs
+- Docker
+- Amazon ECR
+- AWS Elastic Beanstalk
 
 ---
 
 # Installation
 
-## Clone Repository
+Clone the repository
 
 ```bash
-git clone <repository-url>
-cd log_pattern_classifier
+git clone https://github.com/logithaa-g/log-classifier.git
 ```
 
-## Install Dependencies
+Move into the project directory
 
 ```bash
-pip install colorama
+cd log-classifier
+```
+
+Create a virtual environment
+
+```bash
+python -m venv venv
+```
+
+Activate the environment
+
+Windows
+
+```bash
+venv\Scripts\activate
+```
+
+Linux/Mac
+
+```bash
+source venv/bin/activate
+```
+
+Install dependencies
+
+```bash
+pip install -r requirements.txt
 ```
 
 ---
 
 # Usage
 
-## Single File Processing
+Run using the command line
 
 ```bash
-python __main__.py --input sample.log --output report.json
+python -m log_classifier \
+--input platform.log.zst \
+--output report.json
 ```
 
-## Multiple File Processing
+Or launch the Flask dashboard
 
 ```bash
-python __main__.py --input "*.log" --output report.json
+python app.py
 ```
 
-## Severity Filtering
+Open
 
-```bash
-python __main__.py --input "*.log" --output report.json --severity critical
+```
+http://127.0.0.1:5000
 ```
 
-## Category Filtering
-
-```bash
-python __main__.py --input "*.log" --output report.json --filter-category "Port Error"
-```
-
-## Run Analysis Engine
-
-```bash
-python analysis/main_analysis.py
-```
+Upload one or multiple log files to generate reports.
 
 ---
 
-# Example Incident Summary
+# Generated Outputs
 
-```text
-1. Multiple ports went down simultaneously.
-   This indicates a possible switch reset.
+## report.json
 
-2. A port error was followed by link failure
-   and system restart.
+Contains
 
-3. High packet loss caused link instability.
-```
-
----
-
-# Output Format
-
-The generated report contains:
-
+- Event counts
+- Severity distribution
+- Classified events
 - Summary statistics
-- Incident list
-- Flap details
-- Anomaly details
-- Narrative summary
 
-Example:
+---
 
-```json
-{
-    "summary": {
-        "total_events": 35,
-        "overall_severity": "CRITICAL"
-    }
-}
+## analysis_output.json
+
+Contains
+
+- Correlated incidents
+- Detected anomalies
+- Link flap analysis
+- Timeline
+- Root cause summary
+
+---
+
+## Dashboard
+
+Displays
+
+- Total events
+- Severity distribution
+- Incident categories
+- Charts
+- Timeline
+- Event summary
+
+---
+
+# Sample Output
+
+```
+Total Events : 156
+
+Critical : 6
+Error    : 18
+Warning  : 35
+Info     : 97
+
+Top Incident
+
+Link Flap : 24
+Timeout : 19
+Port Error : 11
 ```
 
 ---
 
-# Design Decisions
+# Analysis Modules
 
-Several design decisions were made during development:
+## Flap Detector
 
-- Modular classifier architecture for extensibility
-- Separate analysis layer for scalability
-- JSON-based reporting for interoperability
-- Rule-based correlation for explainability
-- CLI workflow for easier automation
+Detects repeated link state transitions occurring within short time intervals.
+
+---
+
+## Anomaly Detector
+
+Identifies unusual spikes in log frequency and abnormal system behavior.
+
+---
+
+## Event Correlator
+
+Groups related log events occurring within the same incident window.
+
+---
+
+## Incident Narrator
+
+Generates human-readable summaries explaining the sequence of system events.
+
+Example
+
+```
+The switch experienced repeated link flaps followed by multiple timeout events.
+This eventually triggered an assertion failure resulting in a SIGABRT crash.
+```
+
+---
+
+## Report Generator
+
+Produces structured JSON reports suitable for dashboards and future integrations.
+
+---
+
+# Performance
+
+- Single-pass processing
+- Low memory usage
+- Scalable for large log files
+- Efficient regex parsing
+- Modular classifier architecture
+- Easily extensible with new classifiers
 
 ---
 
 # Future Improvements
 
-Possible future enhancements include:
-
-- Real-time streaming analysis
-- Machine learning based anomaly detection
-- Interactive HTML timeline visualization
-- Dashboard interface
+- Machine Learning–based anomaly detection
+- Elasticsearch integration
+- Kibana dashboard support
+- PDF incident reports
+- Email alert generation
+- Real-time log streaming
+- Grafana visualization
+- Docker Compose deployment
 - REST API support
-- Database-backed event storage
 
 ---
 
-# Technologies Used
+# Testing
 
-- Python
-- argparse
-- glob
-- JSON
-- Regex
-- colorama
+Run all tests
+
+```bash
+pytest Tests/
+```
+
+---
+
+# Screenshots
+
+## Upload Dashboard
+
+```
+(Add Screenshot)
+```
+
+## Results Dashboard
+
+```
+(Add Screenshot)
+```
+
+## Incident Timeline
+
+```
+(Add Screenshot)
+```
+
+---
+
+# Contributing
+
+1. Fork the repository
+
+2. Create a feature branch
+
+```bash
+git checkout -b feature/new-feature
+```
+
+3. Commit your changes
+
+```bash
+git commit -m "Added new classifier"
+```
+
+4. Push
+
+```bash
+git push origin feature/new-feature
+```
+
+5. Open a Pull Request
+
+---
+
+# License
+
+This project is licensed under the MIT License.
 
 ---
 
 # Author
 
-Logithaa G
+**Logithaa G**
 
-Computer Science Engineering  
-GSSSIETW
+Computer Science Engineering
+
+GSSS Institute of Engineering and Technology for Women, Mysuru
+
+GitHub:
+https://github.com/logithaa-g
+
+---
+
+# Acknowledgements
+
+- Pure Storage
+- Empower Me Mentorship Program
+- Python Open Source Community
+- Flask Community

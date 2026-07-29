@@ -55,7 +55,10 @@ def analyze():
                 with open(output_path, "r", encoding="utf-8") as f:
                     file_results = json.load(f)
                 all_results.extend(file_results)
-
+            print("RESULTS LOADED:", len(all_results))
+            print("FIRST 10 RESULTS:")
+            for r in all_results[:10]:
+                print(r)
     # ==========================================
     # Pasted logs
     # ==========================================
@@ -102,51 +105,132 @@ def analyze():
     info_count = severity_counts.get("info", 0)
 
     # ==========================================
-    # Smart Summary
+    # Smart Summary metrics
     # ==========================================
-    flaps = len(
-        [
-            r
-            for r in results
-            if "flap" in r.get("category", "").lower()
-        ]
-    )
-    anomalies = len(
-        [
-            r
-            for r in results
-            if r.get("severity") in ["critical", "error"]
-        ]
-    )
+    asserts_count = len([
+        r for r in results
+        if "assert" in r.get("category", "").lower()
+    ])
 
-    correlations = 0
+    sigabort_count = len([
+        r for r in results
+        if "sigabrt" in r.get("category", "").lower()
+    ])
+
+    stacktrace_count = len([
+        r for r in results
+        if "stacktrace" in r.get("category", "").lower()
+    ])
+
+    timeouts_count = len([
+        r for r in results
+        if "timeout" in r.get("category", "").lower()
+    ])
+
+    process_restart_count = len([
+        r for r in results
+        if "restart" in r.get("details", "").lower()
+    ])
+
     incidents = []
     narratives = []
 
     # ==========================================
-    # Incident Detection
+    # Incident Detection & Deduplicated Narratives
     # ==========================================
+    seen_categories = set()
+
     for event in results:
         category = event.get("category", "").lower()
         details = event.get("details", "")
-        timestamp = event.get("timestamp", "")
+        timestamp = event.get("timestamp", "UNKNOWN")
 
-        if "switchd crash" in category:
-            correlations += 1
+        if "process crash" in category:
             incidents.append(
                 {
-                    "type": "switchd_failure",
+                    "type": "switch_failure",
                     "severity": "critical",
                     "description": "Possible switch reset or daemon crash.",
                     "time": timestamp,
                 }
             )
-            narratives.append(
-                "Switch daemon crashed unexpectedly. This may indicate switch instability or software failure."
+            if "process_crash" not in seen_categories:
+                narratives.append(f"[{timestamp}] Process restart initiated after failure.")
+                seen_categories.add("process_crash")
+
+        elif "assert" in category:
+            incidents.append(
+                {
+                    "type": "assert_failure",
+                    "severity": "critical",
+                    "description": "Assertion failure detected.",
+                    "time": timestamp,
+                }
+            )
+            if "assert" not in seen_categories:
+                narratives.append(f"[{timestamp}] Assertion failures detected.")
+                seen_categories.add("assert")
+
+        elif "timeout" in category:
+
+            details = event.get("details", "").lower()
+
+            if "rpc timeout" in details:
+                timeout_type = "rpc_timeout"
+                description = "RPC Timeout detected."
+
+            elif "json request timeout" in details:
+                timeout_type = "json_request_timeout"
+                description = "JSON Request Timeout detected."
+
+            elif "request timeout" in details:
+                timeout_type = "request_timeout"
+                description = "Request Timeout detected."
+
+            else:
+                timeout_type = "timeout"
+                description = "Timeout detected."
+
+            incidents.append(
+                {
+                    "type": timeout_type,
+                    "severity": "warning",
+                    "description": description,
+                    "time": timestamp,
+                }
             )
 
+            if timeout_type not in seen_categories:
+                narratives.append(f"[{timestamp}] {description}")
+                seen_categories.add(timeout_type)
+
+        elif "sigabrt" in category:
+            incidents.append(
+                {
+                    "type": "sigabort",
+                    "severity": "critical",
+                    "description": "SIGABRT event detected.",
+                    "time": timestamp,
+                }
+            )
+            if "sigabort" not in seen_categories:
+                narratives.append(f"[{timestamp}] Process terminated with SIGABRT.")
+                seen_categories.add("sigabort")
+
+        elif "stacktrace" in category:
+            incidents.append(
+                {
+                    "type": "stacktrace",
+                    "severity": "critical",
+                    "description": "Stacktrace detected.",
+                    "time": timestamp,
+                }
+            )
+            if "stacktrace" not in seen_categories:
+                narratives.append(f"[{timestamp}] Stacktrace information captured.")
+                seen_categories.add("stacktrace")
+
         elif "link flap" in category:
-            correlations += 1
             incidents.append(
                 {
                     "type": "link_instability",
@@ -155,12 +239,11 @@ def analyze():
                     "time": timestamp,
                 }
             )
-            narratives.append(
-                "Repeated link state changes suggest network instability or hardware issues."
-            )
+            if "link_flap" not in seen_categories:
+                narratives.append(f"[{timestamp}] Repeated link state changes suggest network instability.")
+                seen_categories.add("link_flap")
 
         elif "port error" in category:
-            correlations += 1
             incidents.append(
                 {
                     "type": "congestion_failure",
@@ -170,9 +253,9 @@ def analyze():
                     "port": details,
                 }
             )
-            narratives.append(
-                "Port errors detected leading to congestion or packet loss."
-            )
+            if "port_error" not in seen_categories:
+                narratives.append(f"[{timestamp}] Port errors detected leading to congestion.")
+                seen_categories.add("port_error")
 
     # ==========================================
     # Overall Severity
@@ -197,13 +280,11 @@ def analyze():
         timestamp = event.get("timestamp", "Unknown")
         severity = event.get("severity", "info").lower()
 
-        timeline_labels.append(timestamp)
+        timeline_labels.append(timestamp[11:16])
         timeline_values.append(severity_map.get(severity, 1))
 
     # ==========================================
     # OUTPUT FILTERING
-    # Only filter if checkboxes were actually submitted from the form.
-    # Without this guard, selected_outputs is always [] and wipes everything.
     # ==========================================
     selected_outputs = request.form.getlist("outputs")
 
@@ -224,7 +305,13 @@ def analyze():
 
     print("TIMELINE LABELS:", timeline_labels)
     print("TIMELINE VALUES:", timeline_values)
+    
+    # Debug printout to verify JSON parsing success before rendering template
+    print("DEBUG FIRST 5 PARSED TIMESTAMPS:", [r.get("timestamp") for r in results[:5]])
 
+    # ==========================================
+    # RENDER TEMPLATE
+    # ==========================================
     return render_template(
         "result.html",
         results=results,
@@ -234,14 +321,16 @@ def analyze():
         warning_count=warning_count,
         info_count=info_count,
         category_counts=category_counts,
-        flaps=flaps,
-        anomalies=anomalies,
-        correlations=correlations,
         overall_severity=overall_severity,
         incidents=incidents,
         narratives=narratives,
         timeline_labels=timeline_labels,
         timeline_values=timeline_values,
+        asserts_count=asserts_count,
+        sigabort_count=sigabort_count,
+        stacktrace_count=stacktrace_count,
+        timeouts_count=timeouts_count,
+        process_restart_count=process_restart_count,
     )
 
 
